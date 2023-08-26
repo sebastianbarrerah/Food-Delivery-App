@@ -1,0 +1,148 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+@media (max-width: 600px) {
+    .mySwiper {
+
+        .swiper-pagination-bullet {
+            width: 10px;
+            /* Ancho de cada bolita */
+            height: 10px;
+            /* Altura de cada bolita */
+            background-color: #afaf01;
+            /* Color de fondo de las bolitas */
+            border-radius: 15px;
+            /* Para dar forma circular a las bolitas */
+            margin: 0 5px;
+            /* Espaciado entre las bolitas */
+            color: $amarillo;
+            position: fixed;
+
+
+        }
+
+        .swiper-pagination {
+            margin-bottom: 15%;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: $amarillo;
+            color: $amarillo;
+            width: 25px;
+        }
+
+
+        .slider__container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+
+            .barra__celular1 {
+                width: 100%;
+                position: fixed;
+                top: 0;
+            }
+
+            .slider__principal {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .descripcionSection {
+                    margin-top: 40px;
+                    width: 55%;
+                }
+            }
+
+            .btn__next {
+                width: 70%;
+                color: $oscuro;
+                background-color: $amarillo;
+                height: 40px;
+                border-radius: 10px;
+                border: none;
+                position: fixed;
+                bottom: 0;
+                margin-bottom: 5%;
+            }
+        }
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .mySwiper {
+
+        .swiper-pagination-bullet {
+            width: 10px;
+            /* Ancho de cada bolita */
+            height: 10px;
+            /* Altura de cada bolita */
+            background-color: #afaf01;
+            /* Color de fondo de las bolitas */
+            border-radius: 15px;
+            /* Para dar forma circular a las bolitas */
+            margin: 0 5px;
+            /* Espaciado entre las bolitas */
+            color: $amarillo;
+            position: fixed;
+
+
+        }
+
+        .swiper-pagination {
+            margin-bottom: 15%;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: $amarillo;
+            color: $amarillo;
+            width: 25px;
+        }
+
+
+        .slider__container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+
+            .barra__celular1 {
+                width: 100%;
+                position: fixed;
+                top: 0;
+            }
+
+            .slider__principal {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .descripcionSection {
+                    margin-top: 40px;
+                    width: 55%;
+                }
+            }
+
+            .btn__next {
+                width: 70%;
+                color: $oscuro;
+                background-color: $amarillo;
+                height: 40px;
+                border-radius: 10px;
+                border: none;
+                position: fixed;
+                bottom: 0;
+                margin-bottom: 5%;
+            }
+        }
+    }
+
+}
