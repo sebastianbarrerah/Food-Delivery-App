@@ -3,6 +3,9 @@
 
 @media (max-width: 600px) {
     .mySwiper {
+        .hide-pagination .swiper-pagination {
+            display: none;
+        }
 
         .swiper-pagination-bullet {
             width: 10px;
@@ -18,20 +21,22 @@
             color: $amarillo;
             position: fixed;
 
-
+            
         }
-
+        
         .swiper-pagination {
             margin-bottom: 15%;
-        }
 
+        }
+        
         .swiper-pagination-bullet-active {
             background-color: $amarillo;
             color: $amarillo;
             width: 25px;
         }
-
-
+        
+        
+        
         .slider__container {
             height: 100vh;
             display: flex;
@@ -40,7 +45,8 @@
             align-items: center;
             flex-wrap: wrap;
             justify-content: space-evenly;
-
+            
+       
             .barra__celular1 {
                 width: 100%;
                 position: fixed;
@@ -57,7 +63,6 @@
                     width: 55%;
                 }
             }
-
             .btn__next {
                 width: 70%;
                 color: $oscuro;
