@@ -1,0 +1,10 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+.barra {
+    display: flex;
+    align-items: center;
+    gap: 35%;
+    font-family: $font-roboto;
+    
+}
