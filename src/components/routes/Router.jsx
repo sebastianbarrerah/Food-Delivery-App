@@ -1,11 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Start from "../start/Start";
+import Adress from "../adress/adress";
+import Search from "../search/search";
+import SearchLoaded from "../searchLoaded/searchLoaded";
 
 const Router = () => {
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Start/>}/>
+                <Route path="/" element={<SearchLoaded/>}/>
             </Routes>
         </BrowserRouter>
     )
