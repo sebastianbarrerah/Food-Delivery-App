@@ -1,0 +1,83 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+@media (min-width: 500px) and (max-width: 900px) {
+    .newCard{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: 5%;
+        margin-top: 1rem;
+        width: 90%;
+        height: 3rem;
+        padding: 2%;
+        background-color: rgb(249, 247, 247);
+        border-radius: 10px; 
+        .input{
+            border: none;
+            width: 88%;
+            height: 2rem;
+            background-color: rgb(249, 247, 247);
+        }
+        
+    }
+    .newCard__details{
+        width: 90%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: 5%;
+        margin-top: 1rem;
+        
+        .input__details{
+            width: 50%;
+            border: none;
+            height: 3rem;
+            padding: 2%;
+            background-color: rgb(249, 247, 247);
+            border-radius: 10px; 
+        }
+
+    }
+    
+}
+@media(max-width:500px){
+    .newCard{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: 5%;
+        margin-top: 1rem;
+        width: 90%;
+        height: 3rem;
+        padding: 2%;
+        background-color: rgb(249, 247, 247);
+        border-radius: 10px; 
+        .input{
+            border: none;
+            width: 88%;
+            height: 2rem;
+            background-color: rgb(249, 247, 247);
+        }
+        
+    }
+    .newCard__details{
+        width: 90%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: 5%;
+        margin-top: 1rem;
+        
+        .input__details{
+            width: 50%;
+            border: none;
+            height: 3rem;
+            padding: 2%;
+            background-color: rgb(249, 247, 247);
+            border-radius: 10px; 
+        }
+
+    }
+
+}

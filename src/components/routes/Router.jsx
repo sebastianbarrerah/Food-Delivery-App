@@ -8,12 +8,17 @@ import Profile from "../profile/profile";
 import ProfileEdit from "../profileEdit/profileEdit";
 import OrderAccepted from "../orderAccepted/orderAccepted";
 import NoInternet from "../noInternet/noInternet";
+import Support from "../support/support";
+import LiveChat from "../liveChat/liveChat";
+import SearchNoResults from "../searchNoResults/searchNoResults";
+import Payment from "../payment/payment";
+import AddNewCard from "../addNewCard/addNewCard";
 
 const Router = () => {
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<NoInternet/>}/>
+                <Route path="/" element={<AddNewCard/>}/>
             </Routes>
         </BrowserRouter>
     )
