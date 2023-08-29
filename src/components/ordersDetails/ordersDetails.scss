@@ -1,0 +1,119 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+@media (min-width: 500px) and (max-width: 900px) {
+    .number__details{
+        display: flex;
+        margin-left: 5%;
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;
+        .title__page{
+            margin-left: 35%;
+            font-family: $letraCuerpo;
+        }
+    }
+    .food__details{
+        display: flex;
+        gap: 1rem;
+        margin-left: 5%;
+        margin-bottom: 1rem;
+        font-family: $letraCuerpo;
+        .quantity{
+            color: rgb(153, 153, 153);
+        }
+        .food{
+            width: 75%;
+            color: rgb(102, 102, 102);
+        }
+        .price{
+            color:rgb(102, 102, 102)
+        }
+    }
+    .costProduction__details{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 5%;
+        margin-top: 3rem;
+        font-family: $letraCuerpo;
+        color: rgb(62, 62, 62);
+    }
+    .costDelivery__details{
+        display: flex;
+        justify-content: space-between;
+        margin: 2% 5%;
+        font-family: $letraCuerpo;
+        color: rgb(62, 62, 62);
+    }
+    .line{
+        width: 90%;
+        margin-left: 5%;
+    }
+    .cost__total{
+        display: flex;
+        justify-content: space-between;
+        margin: 2% 5%;
+        font-family: $letraCuerpo;
+        font-weight: bolder;
+        color: rgb(62, 62, 62);
+    }
+
+}
+@media(max-width:500px){
+    .number__details{
+        display: flex;
+        margin-left: 5%;
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;
+        .title__page{
+            margin-left: 35%;
+            font-family: $letraCuerpo;
+        }
+    }
+    .food__details{
+        display: flex;
+        gap: 1rem;
+        margin-left: 5%;
+        margin-bottom: 1rem;
+        font-family: $letraCuerpo;
+        .quantity{
+            color: rgb(153, 153, 153);
+        }
+        .food{
+            width: 75%;
+            color: rgb(102, 102, 102);
+        }
+        .price{
+            color:rgb(102, 102, 102)
+        }
+    }
+    .costProduction__details{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 5%;
+        margin-top: 3rem;
+        font-family: $letraCuerpo;
+        color: rgb(62, 62, 62);
+    }
+    .costDelivery__details{
+        display: flex;
+        justify-content: space-between;
+        margin: 2% 5%;
+        font-family: $letraCuerpo;
+        color: rgb(62, 62, 62);
+    }
+    .line{
+        width: 90%;
+        margin-left: 5%;
+    }
+    .cost__total{
+        display: flex;
+        justify-content: space-between;
+        margin: 2% 5%;
+        font-family: $letraCuerpo;
+        font-weight: bolder;
+        color: rgb(62, 62, 62);
+    }
+
+}
+   
+   

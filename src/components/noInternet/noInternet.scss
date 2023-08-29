@@ -1,0 +1,54 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+@media (min-width: 500px) and (max-width: 900px){
+    .title__noInternet{
+        display: flex;
+        margin-left: 5%;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        justify-content: center;
+        width: 90%;
+        .title__page{
+            font-family: $letraCuerpo;
+        }
+    }
+    .data__noInternet{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:2rem; 
+        margin-top: 3rem;
+        .span__noInternet{
+            font-family: $letraCuerpo;
+            color: rgb(97, 97, 97);
+            font-weight: bolder;
+        }
+    }
+}
+@media(max-width:500px){
+    .title__noInternet{
+        display: flex;
+        margin-left: 5%;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        justify-content: center;
+        width: 90%;
+        .title__page{
+            font-family: $letraCuerpo;
+        }
+    }
+    .data__noInternet{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:2rem; 
+        margin-top: 3rem;
+        .span__noInternet{
+            font-family: $letraCuerpo;
+            color: rgb(97, 97, 97);
+            font-weight: bolder;
+        }
+    }
+
+}

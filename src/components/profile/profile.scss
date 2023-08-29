@@ -1,0 +1,100 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+@media (min-width: 500px) and (max-width: 900px) {
+    .profile__User{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: $letraCuerpo;
+        .imgProfile{
+            width: 12%;
+        }
+    }
+
+    .profile__data{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        font-family: $letraCuerpo;
+        .settings{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: rgb(230, 230, 230);
+            width: 95%;
+            border-radius: 10px;
+            height: 3rem;
+            padding: 4%;
+            .span{
+                width: 85%;
+                color:rgb(66, 66, 66)
+            }
+            .spanLanguage{
+                font-size: 12px;
+                color:rgb(66, 66, 66)
+            }
+        }
+    }
+    .footer__profile{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+
+    }
+}
+@media(max-width:500px){
+    .profile__User{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: $letraCuerpo;
+        .imgProfile{
+            width: 12%;
+        }
+    }
+
+    .profile__data{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        font-family: $letraCuerpo;
+        .settings{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: rgb(230, 230, 230);
+            width: 95%;
+            border-radius: 10px;
+            height: 3rem;
+            padding: 4%;
+            .span{
+                width: 85%;
+                color:rgb(66, 66, 66)
+            }
+            .spanLanguage{
+                font-size: 12px;
+                color:rgb(66, 66, 66)
+            }
+        }
+    }
+    .footer__profile{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+}
+

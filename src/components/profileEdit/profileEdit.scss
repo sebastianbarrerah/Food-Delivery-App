@@ -1,0 +1,67 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+@media (min-width: 500px) and (max-width: 900px) {
+    .title__profile{
+        display: flex;
+        margin-left: 5%;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        .title__page{
+            margin-left: 35%;
+            font-family: $letraCuerpo;
+        }
+    }
+    .settings{
+        .span__edit{
+            width: 94%;
+        }
+    }
+    .btn__save{
+        width: 90%;
+        margin-left: 5%;
+        font-weight: bolder;
+        color: $oscuro;
+        background-color: $amarillo;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media(max-width:500px){
+    .title__profile{
+        display: flex;
+        margin-left: 5%;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        .title__page{
+            margin-left: 35%;
+            font-family: $letraCuerpo;
+        }
+    }
+    .settings{
+        .span__edit{
+            width: 94%;
+        }
+    }
+    .btn__save{
+        width: 90%;
+        margin-left: 5%;
+        font-weight: bolder;
+        color: $oscuro;
+        background-color: $amarillo;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        position: absolute;
+        bottom: 3%
+    }
+}
+    
+
+
