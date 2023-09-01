@@ -1,0 +1,36 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+@media (max-width: 600px) {
+    .container__verificacion{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        justify-content: space-between;
+        font-family: $letraCuerpo;
+        .container__verificacion-1{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+            position: relative;
+            top: 15%;
+        }
+        .celular{
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        .texto{
+            width: 50%;
+            font-size: 15px;
+        }
+        .numeros{
+            position: fixed;
+            bottom: 0;
+        }
+    }
+}
