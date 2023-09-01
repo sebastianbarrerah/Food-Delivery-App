@@ -7,6 +7,7 @@ import Acount from "../acount/Acount";
 import Location from "../location/Location";
 import Home from "../home/Home";
 import DetailsRestaurant from '../details/DetailsRestaurant';
+import Plato from '../plato/Plato';
 
 const Router = () => {
     return(
@@ -19,6 +20,7 @@ const Router = () => {
                 <Route path="/location" element={<Location/>}/>
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/restaurant" element={<DetailsRestaurant />}/>
+                <Route path="/platos" element={<Plato />}/>
             </Routes>
         </BrowserRouter>
     )

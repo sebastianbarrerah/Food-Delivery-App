@@ -60,5 +60,38 @@
                 }
             }
         }
+        
+        .container__restaurantes{
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            .btn__restaurantes{
+                width: 24%;
+                height: 30px;
+                border-radius: 12px;
+                border: none;
+                background-color: $amarillo;
+            }
+        }
+        .container__comidas{
+            display: flex;
+            width: 100%;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+            .info__comidas{
+                display: flex;
+                flex-direction: column;
+                width: 47%;
+                gap: 5px;
+                .comidas{
+                    width: 47%;
+                    border-radius: 13px;
+                    object-fit: cover;
+                    width: 95%;
+                }
+            }
+        }
    }
 }

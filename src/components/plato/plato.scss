@@ -1,0 +1,75 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+
+@media (max-width: 600px) {
+    .container__plato{
+        width: 100%;
+        height: 100vh;
+        .celular9{
+            width: 100%;
+            position: absolute;
+        }
+        .plato__container{
+            width: 100%;
+            height: 40%;
+        }
+        .plato__img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .atras9{
+            position: absolute;
+            width: 15px;
+            left: 10px;
+            top: 55px;
+        }
+
+        .container__infoElegido{
+            display: flex;
+            width: 100%;
+            padding-left: 15px;
+            .elegido__desTitulo{
+                display: flex;
+                flex-direction: column;
+                width: 88%;
+                gap: 12px;
+                .titulo__elelgido{
+                    font-size: 25px;
+                    opacity: 60%;
+                }
+                .descripcion__elelgido{
+                    font-size: 20px;
+                }
+            }
+            .horas{
+                height: 15px;
+                margin-top: 5px;
+            }
+            .hora{
+                font-size: 12px;
+                width: 71px;
+                margin-top: 5px;
+            }
+        }
+        .adicion{
+            font-size: 18px;
+            opacity: 60%;
+            margin: 15px 0;
+            padding-left: 15px;
+        }
+        .ingredientes{
+            display: flex;
+            gap: 10px;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            .inputC{
+                background-color: $amarilo;
+            }
+            .cantidad{
+                margin-left: 350px;
+            }
+        }
+    }
+}
