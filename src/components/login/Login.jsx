@@ -22,7 +22,7 @@ const Login = () => {
           <option value="españa"> + 2</option>
           <option value="alemania">+ 15</option>🇧🇴 🇦🇲
         </select>
-        <input type="number" name="" id="" />
+        <input type="text" inputmode="tel"/>
       </div>
       <img src={linea} alt="linea" />
       <div className='advertencia'>
