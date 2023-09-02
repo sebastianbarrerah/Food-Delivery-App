@@ -3,22 +3,25 @@ import celularBarra from'../../assets/imagenes/barraCelular.png'
 import { useForm, useWatch } from 'react-hook-form'
 import './acount.scss'
 import { Navigate, useNavigate } from 'react-router-dom'
-
-
+import { auth } from '../../Firebase/firebaseConfig'
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Acount = () => {
-    const { register, handleSubmit, reset, formState: { errors }, watch} = useForm();
-    
+
+    const { register, handleSubmit} = useForm();
     const navigate = useNavigate()
 
-    const onSubmit = data => {
-        console.log(data)
-    
-        reset()
-    }
-
-    const handleIr = () => {
-        navigate('/location')
+    const onSubmit= async (data) => {
+        try {
+            const email= data.email; 
+            const password = data.password; 
+            const {user} = await createUserWithEmailAndPassword(auth ,email, password);
+            console.log(user)
+           
+           console.log('registro correcto')
+          } catch (error) {
+            console.log('registro incorrecto', error.code)
+          }
     }
 
 
@@ -30,22 +33,28 @@ const Acount = () => {
 
         <form className='formulario__create' onSubmit={handleSubmit(onSubmit)}> 
             <div className='div__input'>
+                <label className='label__input'>PHOTO</label>
+                <input type="file" {...register("photo")} className='input__formulario'/>
+                <hr />
+            </div>
+
+            <div className='div__input'>
                 <label className='label__input'>NAME</label>
-                <input type="text" {...register("name")} className='input__formulario'/>
+                <input type="text" {...register("name",{ required: true })} className='input__formulario'/>
                 <hr />
             </div>
             <div className='div__input'>
                 <label className='label__input'>EMAIL</label>
-                <input type="email" {...register("email")} className='input__formulario'/>
+                <input type="email" {...register("email",  { required: true })} className='input__formulario'/>
                 <hr />
             </div>
             <div className='div__input'>
                 <label className='label__input'>PASSWORD</label>
-                <input type="password"  {...register("password")} className='input__formulario'/>
+                <input type="password"  {...register("password",  { required: true })} className='input__formulario'/>
                 <hr />
             </div>
 
-            <button className='boton__create' onClick={handleIr}>Sing In</button>
+            <button type='submit' className='boton__create' >Sing In</button>
         </form>
     </section>
   )

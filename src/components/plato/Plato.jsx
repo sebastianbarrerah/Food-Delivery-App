@@ -23,24 +23,28 @@ const Plato = () => {
             <h3 className='adicion'>Additional Ingredients</h3>
             <div className='ingredientes'>
                 <input type="checkbox" name="" id=""  className="inputC"/>
-                <span>Tomates</span>
+                <span className='nombreIngrediente'>Tomates</span>
                 <div>
                     <span className='cantidad'>+25</span>
                 </div>
             </div>
             <div className='ingredientes'>
-                <input type="checkbox" name="" id=""  />
-                <span>Tomates</span>
+                <input type="checkbox" name="" id=""  className="inputC"/>
+                <span className='nombreIngrediente'>Tomates</span>
                 <div>
                     <span className='cantidad'>+25</span>
                 </div>
             </div>
             <div className='ingredientes'>
-                <input type="checkbox" name="" id=""  />
-                <span>Tomates</span>
+                <input type="checkbox" name="" id=""  className="inputC"/>
+                <span className='nombreIngrediente'>Tomates</span>
                 <div>
                     <span className='cantidad'>+25</span>
                 </div>
+            </div>
+            <div className='botones'>
+                <button className='boton__can'>Buy</button>
+                <button className='boton__buy'>Add to cart</button>
             </div>
 
         </div>

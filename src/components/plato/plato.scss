@@ -41,6 +41,7 @@
                 }
                 .descripcion__elelgido{
                     font-size: 20px;
+                    opacity: 80%;
                 }
             }
             .horas{
@@ -65,10 +66,41 @@
             padding-left: 15px;
             margin-bottom: 20px;
             .inputC{
-                background-color: $amarilo;
+                background-color: $amarillo;
+            }
+            .inputC:checked{
+                background-color: $amarillo;
             }
             .cantidad{
                 margin-left: 350px;
+            }
+            .cantidad{
+                color: $amarillo;
+            }
+            .nombreIngrediente{
+                font-size: 20px;
+                opacity: 70%;
+            }
+        }
+        .botones{
+            width: 100%;
+            display: flex;
+            gap: 15px;
+            padding-left: 15px;
+            position: fixed;
+            bottom: 40px;
+            .boton__can{
+                height: 40px;
+                width: 130px;
+                border-radius: 12px;
+                border: none;
+            }
+            .boton__buy{
+                height: 40px;
+                width: 300px;
+                border-radius: 12px;
+                border: none;
+                background-color: $amarillo;
             }
         }
     }

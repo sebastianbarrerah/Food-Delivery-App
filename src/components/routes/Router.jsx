@@ -2,12 +2,13 @@ import { Navigate } from 'react-router-dom';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Start from "../start/Start";
 import Slider from "../slider/Slider";
-import Verificacion from "../verificacion/verificacion";
 import Acount from "../acount/Acount";
 import Location from "../location/Location";
 import Home from "../home/Home";
 import DetailsRestaurant from '../details/DetailsRestaurant';
 import Plato from '../plato/Plato';
+import Verificacion from '../verificacion/Verificacion';
+import InitialSesion from '../iniatialSesion/initialSesion';
 
 const Router = () => {
     return(
@@ -16,6 +17,7 @@ const Router = () => {
                 <Route path="/" element={<Start/>}/>
                 <Route path="/slider" element={<Slider/>}/>
                 <Route path="/verificacion" element={<Verificacion/>}/>
+                <Route path="/initialSesion" element={<InitialSesion/>}/>
                 <Route path="/acount" element={<Acount/>}/>
                 <Route path="/location" element={<Location/>}/>
                 <Route path="/home" element={<Home/>}/>
@@ -25,5 +27,4 @@ const Router = () => {
         </BrowserRouter>
     )
 }
-
 export default Router;

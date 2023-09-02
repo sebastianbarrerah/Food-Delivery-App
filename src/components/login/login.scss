@@ -20,6 +20,7 @@
             margin-bottom: 40px;
             font-size: 15px;
         }
+
         .div__inputs{
             display: flex;
             justify-content: flex-start;
@@ -45,20 +46,24 @@
             position: relative;
             top: 17em;
         }
-        
-        
         .derechos__autor{
             font-size: 10px;
         }
-        .btn__next1 {
-            width: 70%;
-            color: $oscuro;
-            background-color: $amarillo;
-            height: 40px;
-            border-radius: 10px;
-            border: none;
-            margin-top: 60%;
+        .btn__autenticacion{
+            height: 300px;
+
+            .btn__next1 {
+                width: 70%;
+                color: $oscuro;
+                background-color: $amarillo;
+                height: 40px;
+                border-radius: 10px;
+                border: none;
+                margin-top: 60%;
+            }
+
         }
+
 
     }
 }

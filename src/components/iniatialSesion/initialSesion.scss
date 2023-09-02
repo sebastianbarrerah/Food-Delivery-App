@@ -1,0 +1,67 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+
+@media (max-width: 600px) {
+    .container__create1{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        font-family: $letraCuerpo;
+        width: 100%;
+        height: 100vh;
+        .titulo__create1{
+            margin: 50px 0 80px 3%;
+        }
+        .formulario__create1{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px 15px;
+            .div__input1{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                .label__input1{
+                    margin-bottom: 7px;
+                    opacity: 40%;
+                    font-size: 17px;
+                }
+                .input__formulario1{
+                    border: none;
+                    background-color: white;
+                    font-weight: 200;
+                    font-size: 18px;
+                    opacity: 80%;
+                    letter-spacing: 1px;
+                    border: 1px solid white;
+                }
+                
+                hr{
+                    opacity: 50%;
+                }
+            }
+            .boton__create2{
+                width: 70%;
+                color: $oscuro;
+                background-color: $amarillo;
+                height: 40px;
+                border-radius: 10px;
+                border: none;
+                margin: 5% 15%;
+            }
+            .boton__create1{
+                width: 70%;
+                color: $oscuro;
+                background-color: $gris;
+                height: 40px;
+                border-radius: 10px;
+                border: none;
+                position: fixed;
+                bottom: 0;
+                margin: 5% 15%;
+            }
+        }
+    }
+}
+
