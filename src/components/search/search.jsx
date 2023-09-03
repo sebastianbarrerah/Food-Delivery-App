@@ -12,27 +12,18 @@ import { useSelector } from 'react-redux';
 
 
 function Search() {
-  const datos = useSelector(state => state.restaurantes )
+  const datos = useSelector(state => state.restaurantes)
+  console.log(datos)
   const [filtro, setFiltro] = useState([]);
-
-  const valorInput = ({target}) => {
-    const datoBuscar = target.value; 
-    setFiltro(datoBuscar)
-  
-    const restaurantesFiltrados = datos.filter(dato => {
-      // Filtra los datos en función del valor ingresado en el input
-      return dato.nombre.toLowerCase().includes(filtro.toLowerCase());
-    });
-    setFiltro(restaurantesFiltrados)
-  
-  }
-
-  //  console.log(filtro);
-
-
-
   const navigate = useNavigate();
 
+  const valorInput = (e) => {
+    const datoBuscar = e.target.value;
+    setFiltro(datoBuscar); // Actualiza el estado con el valor del input
+  }
+
+  const  datoFiltrado = datos.filter((dato) => dato.nombre.toLowerCase().includes(filtro))
+  console.log(datoFiltrado)
 
   return (
     <>
@@ -42,19 +33,28 @@ function Search() {
         <input className="input" type="text" placeholder="Search for a dish" onChange={(e) => {valorInput(e)}}/>
       </div>
       <div className="recent__search">
+    
         {/* {
-          filtro.map((element, index) => (
-            <div key={index}>
-              <h3 className="title__h3">Recent searches</h3>
-              <article className="update__data">
-                <img src={loadingIcono} alt="" />
-                <span>{element.nombre}</span>
-              </article>
-            </div>
-          ))
+          (datoFiltrado == "") ? (
+            datoFiltrado.map((element, index) => (
+              <div key={index}>
+                <h3 className="title__h3">Recent searches</h3>
+                <article className="update__data">
+                  <img src={loadingIcono} alt="" />
+                  <span>{element.nombre}</span>
+                </article>
+              </div>
+            ))
+
+          ):
+          (
+            <span>gfdgdfgdfg</span> 
+          )
         } */}
 
       </div>
+
+      
 
       <div className="footer__principal">
         <img src={HomeIcono} alt="" onClick={() => {navigate("/home")}}/>

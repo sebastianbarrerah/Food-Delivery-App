@@ -1,29 +1,22 @@
-import { useNavigate } from 'react-router-dom'
-import React from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+// import { useNavigate } from 'react-router-dom'
+// import React from 'react'
+// import { Outlet, useNavigate } from 'react-router-dom'
+// import { useSelector } from 'react-redux'
 
 
-export const RoutesPrivates = () => {
+// export const RoutesPrivates = () => {
 
-    const usuarioConectado = useSelector(state => state.online)
+//     const usuarioConectado = useSelector(state => state.online)
     
-    const navigate = useNavigate()
+//     const navigate = useNavigate()
 
-    const logOut = () => {
-        if (!usuarioConectado) {
-         return navigate('/Start')
-        }
-    }
-
-    useEffect(() => {
-      logOut()
-    }, [])
+//     if (!usuarioConectado) {
+//     return <Navigate to="/initialSesion" />;
+// }
     
-    
-  return (
-    <div>routesPrivates</div>
-  )
-}
+//   return (
+//     <div>routesPrivates</div>
+//   )
+// }
 
-export default Outlet;
+// export default Outlet;

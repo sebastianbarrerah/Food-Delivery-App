@@ -10,7 +10,7 @@ import Plato from '../plato/Plato';
 import Verificacion from '../verificacion/Verificacion';
 import InitialSesion from '../iniatialSesion/initialSesion';
 import Search from '../search/search';
-import { RoutesPrivates } from "./routesPrivates";
+// import { RoutesPrivates } from "./routesPrivates";
 
 const Router = () => {
     return(
@@ -21,9 +21,9 @@ const Router = () => {
                 <Route path="/verificacion" element={<Verificacion/>}/>
                 <Route path="/initialSesion" element={<InitialSesion/>}/>
                 <Route path="/acount" element={<Acount/>}/>
-                <Route element={<RoutesPrivates/>}>
+                {/* <Route element={<RoutesPrivates/>}> */}
                     {/* Aqui van las rutas privadas */}
-                </Route>
+                {/* </Route> */}
                 <Route path="/location" element={<Location/>}/>
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/search" element={<Search />}/>

@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import Router from './components/routes/Router';
 
-// import traerPlato from './Firebase/Firestore/firestore';
-
 const App = () => {
 
   //  const data = traerRestaurantes;
@@ -10,18 +8,9 @@ const App = () => {
   //   // console.log(doc.data());
   // })
 
-
-
-
-
-
-
-
-
   // console.log(querySnapshot);
   return (
     <Router/>
-
   )
 }
 
