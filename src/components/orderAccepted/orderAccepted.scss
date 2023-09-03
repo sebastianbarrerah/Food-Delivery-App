@@ -1,0 +1,44 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+@media (min-width: 500px) and (max-width: 900px){
+    .image{
+        display: flex;
+        justify-content: center; 
+    }
+    .btn__order{
+        width: 90%;
+        margin-left: 5%;
+        font-weight: bolder;
+        color: $oscuro;
+        background-color: $amarillo;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        position: absolute;
+        bottom: 3%
+    }
+}
+@media(max-width:500px){
+    .image{
+        display: flex;
+        justify-content: center; 
+    }
+    .btn__order{
+        width: 90%;
+        margin-left: 5%;
+        font-weight: bolder;
+        color: $oscuro;
+        background-color: $amarillo;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        position: absolute;
+        bottom: 3%
+    }
+
+}

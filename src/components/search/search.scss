@@ -1,0 +1,110 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+@media (min-width: 500px) and (max-width: 900px) {
+    .input__search {
+        display: flex;
+        gap: 1rem;
+        background-color: rgb(240, 240, 240);
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 1rem;
+        height: 2.5rem;
+        border-radius: 10px;
+        padding: 8px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-family: $letraCuerpo;
+
+        .input {
+            border: none;
+            background-color: rgb(240, 240, 240);
+            font-size: 15px;
+            width: 90%;
+        }
+    }
+
+    .recent__search {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.5rem;
+        margin-left: 5%;
+        font-family: $letraCuerpo;
+        gap: 0.9rem;
+
+        .title__h3 {
+            font-weight: lighter;
+            font-size: 17px;
+        }
+
+        .update__data {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            color: rgb(145, 145, 145);
+        }
+    }
+
+    .footer__principal {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: absolute;
+        bottom: 2%;
+        width: 100%;
+    }
+}
+
+@media(max-width: 500px){
+    .input__search {
+        display: flex;
+        gap: 1rem;
+        background-color: rgb(240, 240, 240);
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 1rem;
+        height: 2.5rem;
+        border-radius: 10px;
+        padding: 8px;
+        padding-left: 1rem;
+        font-family: $letraCuerpo;
+
+        .input {
+            border: none;
+            background-color: rgb(240, 240, 240);
+            font-size: 15px;
+            width: 90%;
+        }
+    }
+
+    .recent__search {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.5rem;
+        margin-left: 5%;
+        font-family: $letraCuerpo;
+        gap: 0.9rem;
+
+        .title__h3 {
+            font-weight: lighter;
+            font-size: 17px;
+        }
+
+        .update__data {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            color: rgb(145, 145, 145);
+        }
+    }
+
+    .footer__principal {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: absolute;
+        bottom: 2%;
+        width: 100%;
+    }
+
+}

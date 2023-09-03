@@ -2,9 +2,8 @@
 @import "../../assets/estilos/reset.scss";
 
 @media (max-width: 600px) {
-    .inicio__logo{
-        background-color: $amarillo;
-        height: 100vh;
+    body{
+        // background-color: $amarillo;
         .barra__celular{
             width: 100%;
         }

@@ -1,0 +1,166 @@
+@import "../../assets/estilos/variables.scss";
+@import "../../assets/estilos/reset.scss";
+
+@media (min-width: 500px) and (max-width: 900px) {
+    .section__message{
+        position:absolute;
+        bottom: 2%; 
+        width: 100%;
+    }
+    .liveChat {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 5%;
+        gap: 1.5rem;
+
+        .outMessage {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+
+            .out__message {
+                background-color: rgb(252, 243, 219);
+                height: 2.5rem;
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            .out__img {
+                width: 40px;
+            }
+        }
+
+        .inMessage {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+
+            .in__fig {
+                background-color: $amarillo;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+
+                .in__img {
+                    padding: 25%;
+                }
+            }
+
+            .in__message {
+                background-color: rgb(246, 246, 246);
+                height: 2.5rem;
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+        }
+    }
+
+    .sendMessage {
+        display: flex;
+        margin: 1rem 5%;
+        gap: 0.5rem;
+
+        .input {
+            height: 3rem;
+            border: 1px solid $amarillo;
+            border-radius: 8px;
+            padding: 10px;
+            width: 90%;
+        }
+
+        .fig {
+            background-color: $amarillo;
+            width: 30px;
+            height: 3rem;
+            border-radius: 8px;
+            width: 10%;
+            padding-left: 3%;
+            padding-top: 1%;
+        }
+    }
+}
+@media(max-width:500px){
+    .section__message{
+        position:absolute;
+        bottom: 2%; 
+        width: 100%;
+    }
+    .liveChat {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 5%;
+        gap: 1.5rem;
+
+        .outMessage {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+
+            .out__message {
+                background-color: rgb(255, 248, 230);
+                height: 2.5rem;
+                padding: 10px;
+                border-radius: 8px;
+                height: max-content;
+            }
+
+            .out__img {
+                width: 40px;
+            }
+        }
+
+        .inMessage {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+
+            .in__fig {
+                background-color: $amarillo;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+
+                .in__img {
+                    padding: 25%;
+                }
+            }
+
+            .in__message {
+                background-color: rgb(246, 246, 246);
+                height: 2.5rem;
+                padding: 10px;
+                border-radius: 8px;
+                height: max-content;
+            }
+
+        }
+    }
+
+    .sendMessage {
+        display: flex;
+        margin: 1rem 5%;
+        gap: 0.5rem;
+
+        .input {
+            height: 3rem;
+            border: 1px solid $amarillo;
+            border-radius: 8px;
+            padding: 10px;
+            width: 90%;
+        }
+
+        .fig {
+            background-color: $amarillo;
+            height: 3rem;
+            border-radius: 8px;
+            width: 10%;
+            padding-left: 1.5%;
+            padding:1%; 
+        }
+    }
+}

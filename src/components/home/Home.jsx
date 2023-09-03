@@ -26,6 +26,8 @@ import { useFormState } from 'react-hook-form'
 import { traerRestaurantes } from '../../Firebase/Firestore/firestore'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../../Firebase/firebaseConfig'
+import { useDispatch } from 'react-redux'
+import { estadoRestaurante } from '../../features/restaurantSlice/restaurantSlice'
 
 
 const Home = () => {
@@ -38,6 +40,7 @@ const Home = () => {
     
     const [restaurantes, setRestaurantes] = useState([]);
 
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchRestaurantes = async () => {
@@ -57,10 +60,11 @@ const Home = () => {
                 descripcion: data.descripcion,  
                 // Agrega más campos según tu estructura de datos
               });
-     
+              
             });
-    
+            
             setRestaurantes(restaurantesData);
+            dispatch(estadoRestaurante(restaurantesData))
           } catch (error) {
             console.error('Error al obtener restaurantes:', error);
           }
