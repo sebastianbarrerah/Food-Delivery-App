@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import celularBarra from'../../assets/imagenes/barraCelular.png'
 import atras from'../../assets/imagenes/Back.png'
 import restaurante from'../../assets/imagenes/restaurante1.png'
@@ -12,7 +12,7 @@ import comida3 from'../../assets/imagenes/comida3.png'
 import comida4 from'../../assets/imagenes/comida4.png'
 import comida5 from'../../assets/imagenes/comida5.png'
 import comida6 from'../../assets/imagenes/comida6.png'
-import { useNavigate } from 'react-router'
+import { useNavigate, useLocation } from 'react-router'
 
 // import posterRestaurante2 from'../../assets/imagenes/posterRestaurante2.png'
 // import { Swiper, SwiperSlide } from 'swiper/react';
@@ -20,7 +20,18 @@ import { useNavigate } from 'react-router'
 
 const DetailsRestaurant = () => {
 
+    const location = useLocation()
     const navigate = useNavigate()
+    
+    const [infoRestaurante, setinfoRestaurante] = useState({})
+    useEffect(() => {
+        if (location.state) {
+
+        setinfoRestaurante(location.state) 
+      }
+    }, [])
+    console.log(infoRestaurante.nombre)
+    
 
     const handleClickPlato = ()=> {
         navigate("/platos")
@@ -28,19 +39,19 @@ const DetailsRestaurant = () => {
   return (
     <section className="container__restaurante">
         <img src={celularBarra} className='celular' alt="Estado celular" /> 
-        <img src={atras} className='atras' alt="Estado celular" /> 
+        <img src={atras} className='atras' alt="Estado celular" onClick={()=>{navigate('/home')}} /> 
         <figure className='figure__restaurante'>
             <img src={logoNombre} className='logoNombre' alt="logoNombre" /> 
             <img src={logoPanadero} className='logoNombre' alt="restaurante" /> 
         </figure>
         <div className="restaurantes0" >
-                <img src={restaurante} alt=""className='imagen__restaurante' />
+                <img src={infoRestaurante.imagen} alt=""className='imagen__restaurante' />
                 <div className="info__restaurantes0">
-                    <h3 className='nombre__restaurante0'>Pardes Restaurant</h3>
-                    <span className='precio__restaurante0'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure cum, laboriosam magni ipsum enim ducimus expedita voluptatem impedit veniam inventore autem corporis, </span>
+                    <h3 className='nombre__restaurante0'>{infoRestaurante.nombre}</h3>
+                    <span className='precio__restaurante0'>{infoRestaurante.descripcion}</span>
                     <div className='detallesMenoresRestaurantes'>
                         <img src={star4} alt="" className='stars0'/>
-                        <span className='horarios__restaurante0'>15-20 min</span>
+                        <span className='horarios__restaurante0'>{infoRestaurante.horario}</span>
                     </div>
                 </div>
             </div>

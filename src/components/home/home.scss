@@ -63,6 +63,12 @@
                 display: flex;
                 gap: 20px;
                 height: 21%;
+                .fig__imgRestaurantes{
+                    width: 200px;
+                    .img__Restaurantes{
+                        width: 100%;
+                    }
+                }
                 .info__restaurantes{
                     display: flex;
                     flex-direction: column;

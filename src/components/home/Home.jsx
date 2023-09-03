@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import celularBarra from'../../assets/imagenes/barraCelular.png'
 import restaurante1 from'../../assets/imagenes/restaurante1.png'
 // import restaurante2 from'../../assets/imagenes/restaurante2.png'
 // import restaurante3 from'../../assets/imagenes/restaurante3.png'
 // import restaurante4 from'../../assets/imagenes/restaurante4.png'
-// import star3 from'../../assets/imagenes/star3.png'
+import star3 from'../../assets/imagenes/Stars3.png'
 import star4 from'../../assets/imagenes/Stars4.png'
-// import star5 from'../../assets/imagenes/star5.png'
+import star5 from'../../assets/imagenes/Stars5.png'
 // import burguer from'../../assets/imagenes/hamburguesa.png'
 // import pizaa from'../../assets/imagenes/pizza.png'
 import posterRestaurante1 from'../../assets/imagenes/poserRestaurante1.png'
@@ -22,16 +22,53 @@ import './home.scss'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import { Navigate } from 'react-router-dom'
+import { useFormState } from 'react-hook-form'
+import { traerRestaurantes } from '../../Firebase/Firestore/firestore'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../../Firebase/firebaseConfig'
 
 
 const Home = () => {
     const navigate = useNavigate()
 
-    const clickDetalles = () => {
-        navigate('/restaurant')
-        console.log('click')
-    
+    const clickDetalles = (restaurant) => {
+        console.log();
+        navigate(`/restaurante/${restaurant.nombre}`, {state:restaurant})
     }
+    
+    const [restaurantes, setRestaurantes] = useState([]);
+
+
+    useEffect(() => {
+        const fetchRestaurantes = async () => {
+          try {
+            const querySnapshot = await getDocs(collection(db, 'restaurantes'));
+            const restaurantesData = [];
+    
+            querySnapshot.forEach((doc) => {
+              const data = doc.data();
+              restaurantesData.push({
+                id: doc.id,
+                nombre: data.nombre,
+                horario: data.horario,
+                imagen: data.imagen,
+                categoria: data.categoria, 
+                tipoRestaurante : data.tipoRestaurante,
+                descripcion: data.descripcion,  
+                // Agrega más campos según tu estructura de datos
+              });
+     
+            });
+    
+            setRestaurantes(restaurantesData);
+          } catch (error) {
+            console.error('Error al obtener restaurantes:', error);
+          }
+        };
+    
+        fetchRestaurantes();
+    }, []);
+
 
   return (
     <section className='container__home'>
@@ -62,59 +99,49 @@ const Home = () => {
         <span className='description__cafe'>Restaurants and cafes</span>
 
         <div className='botones__categorias'>
-            <button className='boton__categoria'>All</button>
-            <button className='boton__categoria'>All</button>
-            <button className='boton__categoria'>All</button>
+            {
+                restaurantes.map((element, index) => (
+                    <button className='boton__categoria' key={index}>{element.tipoRestaurante}</button>
+                ))
+            }
         </div>
 
         <div className="container__restaurantes">
-            <div className="restaurantes">
-                <img src={restaurante1} alt="" />
-                <div className="info__restaurantes">
-                    <h3 className='nombre__restaurante'>Pardes Restaurant</h3>
-                    <img src={star4} alt="" className='stars'/>
-                    <span className='horarios__restaurante'>Work time 09:30 - 23:00</span>
-                    <span className='precio__restaurante'>Before you <strong>4$</strong> </span>
-                </div>
-            </div>
+        
+     {
+     restaurantes.map((restaurant, index)=>(
+     <div className="restaurantes" onClick={() => {clickDetalles(restaurant)}} key={index}>
+        <figure className='fig__imgRestaurantes'>
+        <img src={restaurant.imagen} alt="" className='img__Restaurantes'/>
+        </figure>
+        
+         <div className="restaurante__restaurantes">
+             <h3 className='nombre__restaurante'>{restaurant.nombre}</h3>
 
-            <div className="restaurantes" onClick={clickDetalles}>
-                <img src={restaurante1} alt="" />
-                <div className="info__restaurantes">
-                    <h3 className='nombre__restaurante'>Pardes Restaurant</h3>
-                    <img src={star4} alt="" className='stars'/>
-                    <span className='horarios__restaurante'>Work time 09:30 - 23:00</span>
-                    <span className='precio__restaurante'>Before you <strong>4$</strong> </span>
-                </div>
-            </div>
+             {restaurant.categoria === 3 ? (
+          <img src={star3} alt="" className='stars' />
+        ) : restaurant.categoria === 4 ? (
+          <img src={star4} alt="" className='stars' />
+        ) :  (
+          <img src={star5} alt="" className='stars' />
+        )}
 
-            <div className="restaurantes">
-                <img src={restaurante1} alt="" />
-                <div className="info__restaurantes">
-                    <h3 className='nombre__restaurante'>Pardes Restaurant</h3>
-                    <img src={star4} alt="" className='stars'/>
-                    <span className='horarios__restaurante'>Work time 09:30 - 23:00</span>
-                    <span className='precio__restaurante'>Before you <strong>4$</strong> </span>
-                </div>
-            </div>
+             {/* <img src={star4} alt="" className='stars'/> */}
+             <span className='horarios__restaurante'>{restaurant.horario}</span>
+             <span className='precio__restaurante'>Before you <strong>4$</strong> </span>
+         </div>
+     </div>   ))
+     }
 
-            <div className="restaurantes">
-                <img src={restaurante1} alt="" />
-                <div className="info__restaurantes">
-                    <h3 className='nombre__restaurante'>Pardes Restaurant</h3>
-                    <img src={star4} alt="" className='stars'/>
-                    <span className='horarios__restaurante'>Work time 09:30 - 23:00</span>
-                    <span className='precio__restaurante'>Before you <strong>4$</strong> </span>
-                </div>
-            </div>
+                                   
         </div>
 
         <button className='button__home'>View card</button> 
 
         <footer className='footer__home'>
             <figure className='figure__home'>
-                <img src={home} alt="" className='icono__figure'/>
-                <img src={search} alt="" className='icono__figure'/>
+                <img src={home} alt="" className='icono__figure' onClick={()=>{navigate('/home')}}/>
+                <img src={search} alt="" className='icono__figure' onClick={()=>{navigate('/search')}}/>
                 <img src={orden} alt="" className='icono__figure'/>
                 <img src={perfil} alt="" className='icono__figure'/>
             </figure>

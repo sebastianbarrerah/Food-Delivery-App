@@ -7,15 +7,12 @@ import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebas
 import { auth } from '../../Firebase/firebaseConfig'
 import Swal from 'sweetalert2'
 import { useDispatch, useSelector } from 'react-redux'
-import logout from '../auth'
-
-
-
-
+import logout from '../auth.js'
 
 
 const InitialSesion = () => {
-    const line = useSelector(state => state.online)
+    const user = useSelector(state => state.online)
+    const dispatch = useDispatch()
     const { register, handleSubmit, reset, formState: { errors }, watch} = useForm();
     
     const navigate = useNavigate()
@@ -30,8 +27,8 @@ const InitialSesion = () => {
                 `Bienvenido ${user.displayName}`,
                 "success"
             );
-
            reset();
+           dispatch(logout(user));
         } catch (error) {
             Swal.fire(
                 "Ops!",
@@ -42,7 +39,6 @@ const InitialSesion = () => {
         };
     }
           
-    
 
     const desconectar = async() => {
         try {
@@ -53,6 +49,7 @@ const InitialSesion = () => {
                 `Hasta luego`,
                 "success"
             );
+            dispatch(logout(false))
             
         } catch (error) {
             Swal.fire(
@@ -63,15 +60,8 @@ const InitialSesion = () => {
             console.log(error.code)
         }
     }
-    const dispatch = useDispatch()
-
-        dispatch(logout(line))
-
  
-
-  
-
-
+ 
   return (
 
     <section className='container__create1'>

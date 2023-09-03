@@ -9,9 +9,12 @@ import { useForm } from 'react-hook-form'
 import Swal from 'sweetalert2'
 import { auth } from '../../Firebase/firebaseConfig'
 import { RecaptchaVerifier, signInWithPhoneNumber, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useDispatch } from 'react-redux'
+import logout from '../auth'
 
 
 const Login = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const { register, handleSubmit } = useForm()
 
@@ -41,6 +44,9 @@ const Login = () => {
       navigate('/verificacion');
       
     } catch (error) {
+      console.log(error.code);
+      console.log(error);
+      console.log(error.message);
       Swal.fire(
         "Ops!",
         `Ocurrió un error al realizar tu solicitud, intentalo de nuevo`,
@@ -64,8 +70,11 @@ const Login = () => {
         `Usuario autenticado`,
         "success"
       );
+
       console.log(dataGoogle);
       navigate('/location')
+      dispatch(logout(dataGoogle));
+      
     try {
     } catch (error) {
       Swal.fire(
@@ -104,9 +113,9 @@ const Login = () => {
         </div>
 
       <div className='btn__autenticacion'>
+      <button type="submit" className='btn__next1'>login</button>
       <button  className='btn__next1' type="button" onClick={loginGoogle}>Iniciar sesión con Google</button>
       <button onClick={()=>navigate('/initialSesion')} className='btn__next1' type="button">Iniciar sesión con email y contraseña</button>
-      <button type="submit" className='btn__next1'>login</button>
       </div>
 
       </form>
