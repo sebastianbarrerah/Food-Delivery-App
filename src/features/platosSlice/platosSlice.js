@@ -9,11 +9,14 @@ const platosSlice = createSlice({
     reducers: {
         estadoPlatos: (state, action) => {
             state.push(action.payload)
-            console.log(action.payload);
-        
+        },
+        resetPlatos: (state) => {
+            // Esta acción resetea completamente el estado de platos a un array vacío
+            return [];
         }
     }
+
 })
 
 export default platosSlice.reducer
-export const {estadoPlatos} = platosSlice.actions
+export const {estadoPlatos, resetPlatos} = platosSlice.actions

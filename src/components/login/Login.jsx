@@ -113,7 +113,7 @@ const Login = () => {
         </div>
 
       <div className='btn__autenticacion'>
-      <button type="submit" className='btn__next1'>login</button>
+      <button type="submit" className='btn__next1'>Login</button>
       <button  className='btn__next1' type="button" onClick={loginGoogle}>Iniciar sesión con Google</button>
       <button onClick={()=>navigate('/initialSesion')} className='btn__next1' type="button">Iniciar sesión con email y contraseña</button>
       </div>

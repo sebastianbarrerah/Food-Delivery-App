@@ -19,6 +19,7 @@ export const dataPlatos =  () => {
             traerPlatos.forEach((doc) => {
                 const data = doc.data()
                 dispatch(estadoPlatos(data))
+                console.log(data);
             })
         } catch (error) {
             console.log(error);

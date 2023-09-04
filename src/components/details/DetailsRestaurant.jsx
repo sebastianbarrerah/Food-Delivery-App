@@ -15,6 +15,7 @@ import comida6 from'../../assets/imagenes/comida6.png'
 import { useNavigate, useLocation } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { dataPlatos } from '../../Firebase/Firestore/firestore'
+import { resetPlatos } from '../../features/platosSlice/platosSlice'
 
 // import posterRestaurante2 from'../../assets/imagenes/posterRestaurante2.png'
 // import { Swiper, SwiperSlide } from 'swiper/react';
@@ -35,6 +36,7 @@ const DetailsRestaurant = () => {
 }, [])
 
 useEffect(() => {    
+    dispatch(resetPlatos())
     dispatch(dataPlatos());
 }, [])
 
@@ -44,8 +46,8 @@ console.log(datosDePlatos)
 
 const nombreRestaurante = infoRestaurante.nombre; 
 
-// const platosFiltrados = datosDePlatos.filter(plato => plato.idRestaurante === nombreRestaurante)
-// console.log(platosFiltrados);
+const platosFiltrados = datosDePlatos.filter(plato => plato.idRestaurante === nombreRestaurante)
+console.log(platosFiltrados);
 
 
     const handleClickPlato = ()=> {
@@ -80,12 +82,18 @@ const nombreRestaurante = infoRestaurante.nombre;
             </div>
 
             <div className='container__comidas'>
-                <div className='info__comidas' onClick={handleClickPlato}>
-                    <img src={comida1} className='comidas' alt='comida'/>
-                    <h4>nombre del plato</h4>   
-                    <span>$ 25 38</span>
-                </div>
-                <div className='info__comidas' onClick={handleClickPlato}>
+                {
+                    platosFiltrados.map((plato, index)=>(
+                        <div className='info__comidas' onClick={handleClickPlato} key={index}>
+                        <img src={comida1} className='comidas' alt='comida'/>
+                        <h4>{plato.nombre}</h4>   
+                        <span>{plato.precio}</span>
+                    </div>
+
+                    ))
+                }
+              
+                {/* <div className='info__comidas' onClick={handleClickPlato}>
                     <img src={comida2} className='comidas' alt='comida'/>
                     <h4>nombre del plato</h4>  
                     <span>$ 25 38</span>
@@ -109,7 +117,7 @@ const nombreRestaurante = infoRestaurante.nombre;
                     <img src={comida6} className='comidas' alt='comida'/>
                     <h4>nombre del plato</h4>
                     <span>$ 25 38</span>
-                </div>
+                </div> */}
             </div>
     </section>
 
