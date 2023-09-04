@@ -85,7 +85,7 @@ console.log(platosFiltrados);
                 {
                     platosFiltrados.map((plato, index)=>(
                         <div className='info__comidas' onClick={handleClickPlato} key={index}>
-                        <img src={comida1} className='comidas' alt='comida'/>
+                        <img src={plato.image} className='comidas' alt='comida'/>
                         <h4>{plato.nombre}</h4>   
                         <span>{plato.precio}</span>
                     </div>
