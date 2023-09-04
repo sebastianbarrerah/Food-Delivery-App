@@ -1,22 +1,22 @@
-// import { useNavigate } from 'react-router-dom'
-// import React from 'react'
-// import { Outlet, useNavigate } from 'react-router-dom'
-// import { useSelector } from 'react-redux'
+import React from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
+const RoutesPrivates = () => {
+    const usuarioConectado = useSelector(state => state.online);
 
-// export const RoutesPrivates = () => {
+    return (
+        <div>
+            {usuarioConectado ? (
+                // Renderizar las rutas privadas aquí si el usuario está conectado
+                <Outlet />
+            ) : (
+                // Redirigir al usuario a otra página si no está conectado
+                <Navigate to="/" replace={true} />
+                // Utiliza el prop 'replace' para reemplazar la entrada en la pila de historial
+            )}
+        </div>
+    );
+};
 
-//     const usuarioConectado = useSelector(state => state.online)
-    
-//     const navigate = useNavigate()
-
-//     if (!usuarioConectado) {
-//     return <Navigate to="/initialSesion" />;
-// }
-    
-//   return (
-//     <div>routesPrivates</div>
-//   )
-// }
-
-// export default Outlet;
+export default RoutesPrivates;

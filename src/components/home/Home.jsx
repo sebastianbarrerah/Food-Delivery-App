@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import celularBarra from'../../assets/imagenes/barraCelular.png'
 import restaurante1 from'../../assets/imagenes/restaurante1.png'
@@ -23,15 +23,32 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import { Navigate } from 'react-router-dom'
 import { useFormState } from 'react-hook-form'
-import { traerRestaurantes } from '../../Firebase/Firestore/firestore'
+import { dataPlatos, traerRestaurantes } from '../../Firebase/Firestore/firestore'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../../Firebase/firebaseConfig'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { estadoRestaurante } from '../../features/restaurantSlice/restaurantSlice'
+import logout from '../auth'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../Firebase/firebaseConfig'
 
 
 const Home = () => {
+  const [ubicacion, setUbicacion] = useState("")
     const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const location = useLocation();
+
+    useEffect(() => {
+      if (location.state) {
+      setUbicacion(location.state) 
+    }
+  }, [])
+
+//   useEffect(() => {    
+//     dispatch(dataPlatos());
+// }, [dispatch])
+
 
     const clickDetalles = (restaurant) => {
         console.log();
@@ -40,7 +57,6 @@ const Home = () => {
     
     const [restaurantes, setRestaurantes] = useState([]);
 
-    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchRestaurantes = async () => {
@@ -73,18 +89,31 @@ const Home = () => {
         fetchRestaurantes();
     }, []);
 
+    const salir = async () => {
+      try {
+        await signOut(auth); 
+        console.log('Usuario desconectado');
+        dispatch(logout(false));
+      } catch (error) {
+        console.log('Error al desconectar:', error.code);
+      }
+    };
+
+
 
   return (
     <section className='container__home'>
         <img src={celularBarra} className='cell' alt="Estado celular" /> 
         <div className='div__home1'>
-            <img src={buscar} alt="buscar" className='buscar'/>
+            <img src={buscar} alt="buscar" className='buscar' onClick={()=>{navigate('/adress')}}/>
             <div className='div__home'>
                 <span className='direccion__name'>DELIVER TO</span>
-                <span className='direccion'>882 Well St, New-York</span>
+                <span className='direccion'>{ubicacion}</span>
             </div>
+            <button onClick={salir}>desconectar</button>
 
         </div>
+
         <Swiper
                 modules={[Pagination]}
                 spaceBetween={"5"}

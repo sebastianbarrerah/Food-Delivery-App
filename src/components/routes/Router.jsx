@@ -10,7 +10,9 @@ import Plato from '../plato/Plato';
 import Verificacion from '../verificacion/Verificacion';
 import InitialSesion from '../iniatialSesion/initialSesion';
 import Search from '../search/search';
-// import { RoutesPrivates } from "./routesPrivates";
+import RoutesPrivates from "./RoutesPrivates";
+import Adress from "../adress/adress";
+
 
 const Router = () => {
     return(
@@ -20,16 +22,16 @@ const Router = () => {
                 <Route path="/slider" element={<Slider/>}/>
                 <Route path="/verificacion" element={<Verificacion/>}/>
                 <Route path="/initialSesion" element={<InitialSesion/>}/>
-                <Route path="/acount" element={<Acount/>}/>
-                {/* <Route element={<RoutesPrivates/>}> */}
-                    {/* Aqui van las rutas privadas */}
-                {/* </Route> */}
-                <Route path="/location" element={<Location/>}/>
-                <Route path="/home" element={<Home/>}/>
-                <Route path="/search" element={<Search />}/>
-                <Route path="/restaurante/:restaurante" element={<DetailsRestaurant />}/>
-                <Route path="/platos" element={<Plato />}/>
-             
+                <Route path="/acount" element={<Acount/>}/>            
+                <Route element={<RoutesPrivates/>}>
+                    <Route path="/location" element={<Location/>}/>
+                    <Route path="/home" element={<Home/>}/>            
+                    <Route path="/search" element={<Search />}/>
+                    <Route path="/restaurante/:restaurante" element={<DetailsRestaurant />}/>
+                    <Route path="/platos" element={<Plato />}/>
+                    <Route path="/adress" element={<Adress />}/>
+                </Route>
+                
             </Routes>
         </BrowserRouter>
     )

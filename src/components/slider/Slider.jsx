@@ -66,6 +66,7 @@ const Slider = () => {
                         <span className='descripcionSection'>We will deliver as soon as possible</span>
                     </div>
                     <button className='btn__next' onClick={siguiente}>Next</button>
+                    
             </section>
             </SwiperSlide>
 

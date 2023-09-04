@@ -11,20 +11,10 @@ import { auth } from '../../Firebase/firebaseConfig'
 const Location = () => {
   
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+
   const handelSend = () => { 
     navigate("/Home")
   }
-
-  const salir = async () => {
-    try {
-      await signOut(auth); 
-      console.log('Usuario desconectado');
-      dispatch(logout(false));
-    } catch (error) {
-      console.log('Error al desconectar:', error.code);
-    }
-  };
 
   return (
     <section className='container__location'>
@@ -36,7 +26,7 @@ const Location = () => {
         <img src={mapa} alt="" />
         <span>Where I am ?</span>
       </div>
-      <button onClick={salir}>desconectar</button>
+  
       <button className='button__location' onClick={handelSend}>Confirm</button>
     </section>
   )

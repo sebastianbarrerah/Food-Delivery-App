@@ -1,4 +1,4 @@
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from "react";
 import barraCel from "../../assets/imagenes/barraCelular.png";
 import searchIcono from "../../assets/imagenes/SearchGrey.png";
@@ -9,6 +9,7 @@ import TimeIcono from "../../assets/imagenes/Orders1.png"
 import ProfileIcono from "../../assets/imagenes/Profile1.png"
 import "./search.scss";
 import { useSelector } from 'react-redux';
+import '../searchLoaded/searchLoaded.scss';
 
 
 function Search() {
@@ -22,7 +23,7 @@ function Search() {
     setFiltro(datoBuscar); // Actualiza el estado con el valor del input
   }
 
-  const  datoFiltrado = datos.filter((dato) => dato.nombre.toLowerCase().includes(filtro))
+  const datoFiltrado = datos.filter((dato) => dato.nombre.toLowerCase().includes(filtro))
   console.log(datoFiltrado)
 
   return (
@@ -30,12 +31,12 @@ function Search() {
       <img className="dataMobile" src={barraCel} alt="" />
       <div className="input__search">
         <img className="img" src={searchIcono} alt="" />
-        <input className="input" type="text" placeholder="Search for a dish" onChange={(e) => {valorInput(e)}}/>
+        <input className="input" type="text" placeholder="Search for a dish" onChange={(e) => { valorInput(e) }} />
       </div>
       <div className="recent__search">
-    
-        {/* {
-          (datoFiltrado == "") ? (
+
+        {
+          (filtro.length === 0) ? (
             datoFiltrado.map((element, index) => (
               <div key={index}>
                 <h3 className="title__h3">Recent searches</h3>
@@ -46,18 +47,26 @@ function Search() {
               </div>
             ))
 
-          ):
-          (
-            <span>gfdgdfgdfg</span> 
-          )
-        } */}
+          ) :
+            (
+              datoFiltrado.map((element, index) => (
+                <div className="food__found" key={index}>
+                  <img className="img" src={element.imagen} alt="" />
+                  <article className="data">
+                    <span className="spanFood">{element.nombre}</span>
+                    {/* <span className="spanPrice">45 lukas</span> */}
+                  </article>
+                </div>
+              ))
+            )
+        }
 
       </div>
 
-      
+
 
       <div className="footer__principal">
-        <img src={HomeIcono} alt="" onClick={() => {navigate("/home")}}/>
+        <img src={HomeIcono} alt="" onClick={() => { navigate("/home") }} />
         <img src={SearchIcono} alt="" />
         <img src={TimeIcono} alt="" />
         <img src={ProfileIcono} alt="" />

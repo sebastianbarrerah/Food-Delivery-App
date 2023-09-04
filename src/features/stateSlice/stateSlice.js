@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const initialState = (null)
+const initialState = (false)
 
 const stateSlice = createSlice({
     name: "online",
@@ -9,6 +9,7 @@ const stateSlice = createSlice({
     reducers: {
         estadoOnline: (state, action) => {
             state = action.payload
+            return state
         }
     }
 })

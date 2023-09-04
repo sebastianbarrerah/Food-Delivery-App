@@ -9,9 +9,12 @@ import { auth } from '../../Firebase/firebaseConfig'
 import { signInWithCredential } from 'firebase/auth';
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
+import logout from '../auth.js'
+import { useDispatch } from 'react-redux'
 
 const Verificacion = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [verificationCode, setVerificationCode] = useState("");
   
   const verifyCode = async () => {
@@ -27,6 +30,7 @@ const Verificacion = () => {
         `Usuario autenticado`,
         "success"
       );
+      logout(dispatch)();
       navigate('/location')
   
       console.log("Usuario autenticado:", user);

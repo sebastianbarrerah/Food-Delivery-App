@@ -32,6 +32,32 @@
         font-family: $letraCuerpo;
         gap: 0.9rem;
 
+        .food__found{
+            display: flex;
+            margin-left: 5%;
+            gap: 0.5rem;
+    
+                .img{
+                    border-radius: 20%;
+                }
+            
+            .data{
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+                font-family: $letraCuerpo;
+                .spanFood{
+                    font-weight: lighter;
+                }
+                .spanPrice{
+                    color: rgb(155, 155, 155);
+                    font-size: 15px;
+                }
+            }
+        }
+
+        // AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
         .title__h3 {
             font-weight: lighter;
             font-size: 17px;
@@ -84,6 +110,30 @@
         margin-left: 5%;
         font-family: $letraCuerpo;
         gap: 0.9rem;
+
+        .food__found{
+            display: flex;
+            margin-left: 5%;
+            gap: 0.5rem;
+    
+                .img{
+                    border-radius: 20%;
+                }
+            
+            .data{
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+                font-family: $letraCuerpo;
+                .spanFood{
+                    font-weight: lighter;
+                }
+                .spanPrice{
+                    color: rgb(155, 155, 155);
+                    font-size: 15px;
+                }
+            }
+        }
 
         .title__h3 {
             font-weight: lighter;

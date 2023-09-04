@@ -43,10 +43,9 @@ const Login = () => {
       );
       navigate('/verificacion');
       
+      
     } catch (error) {
       console.log(error.code);
-      console.log(error);
-      console.log(error.message);
       Swal.fire(
         "Ops!",
         `Ocurrió un error al realizar tu solicitud, intentalo de nuevo`,
@@ -54,6 +53,7 @@ const Login = () => {
       );
     }
   };
+
 
   const onSubmit = (data) => {
     generateRecaptcha(data.phone);
@@ -63,19 +63,19 @@ const Login = () => {
   }
 
   const loginGoogle = async () => {
-    const provider = new GoogleAuthProvider()
-      const dataGoogle = await signInWithPopup(auth, provider)
-      Swal.fire(
-        "Excelente",
-        `Usuario autenticado`,
-        "success"
-      );
-
-      console.log(dataGoogle);
-      navigate('/location')
-      dispatch(logout(dataGoogle));
-      
     try {
+      const provider = new GoogleAuthProvider()
+        const dataGoogle = await signInWithPopup(auth, provider)
+        Swal.fire(
+          "Excelente",
+          `Usuario autenticado`,
+          "success"
+        );
+  
+        console.log(dataGoogle);
+        navigate('/location')
+        // dispatch(logout(dataGoogle));
+        logout(dispatch)();
     } catch (error) {
       Swal.fire(
         "Ops!",

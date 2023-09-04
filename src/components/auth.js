@@ -3,8 +3,9 @@ import { auth } from '../Firebase/firebaseConfig';
 import { estadoOnline } from '../features/stateSlice/stateSlice';
 
 
-const logout = () => {
-    return async (dispatch) => {
+const logout = (dispatch) => {
+  
+    return async () => {
       try {
         onAuthStateChanged(auth, (user) => {
           if (user) {

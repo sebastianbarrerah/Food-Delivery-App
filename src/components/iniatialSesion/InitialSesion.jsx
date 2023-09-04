@@ -28,7 +28,8 @@ const InitialSesion = () => {
                 "success"
             );
            reset();
-           dispatch(logout(user));
+           logout(dispatch)();
+           
         } catch (error) {
             Swal.fire(
                 "Ops!",
@@ -43,13 +44,12 @@ const InitialSesion = () => {
     const desconectar = async() => {
         try {
             const salir = await signOut(auth);
-            console.log(salir)
             Swal.fire(
                 "Te has desconectado",
                 `Hasta luego`,
                 "success"
             );
-            dispatch(logout(false))
+            logout(dispatch)();
             
         } catch (error) {
             Swal.fire(
@@ -91,4 +91,3 @@ const InitialSesion = () => {
 }
 
 export default InitialSesion;
-

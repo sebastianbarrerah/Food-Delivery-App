@@ -13,6 +13,8 @@ import comida4 from'../../assets/imagenes/comida4.png'
 import comida5 from'../../assets/imagenes/comida5.png'
 import comida6 from'../../assets/imagenes/comida6.png'
 import { useNavigate, useLocation } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
+import { dataPlatos } from '../../Firebase/Firestore/firestore'
 
 // import posterRestaurante2 from'../../assets/imagenes/posterRestaurante2.png'
 // import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,20 +24,34 @@ const DetailsRestaurant = () => {
 
     const location = useLocation()
     const navigate = useNavigate()
+    const dispatch = useDispatch() 
     
     const [infoRestaurante, setinfoRestaurante] = useState({})
+    
     useEffect(() => {
         if (location.state) {
-
         setinfoRestaurante(location.state) 
-      }
-    }, [])
-    console.log(infoRestaurante.nombre)
+    }
+}, [])
+
+useEffect(() => {    
+    dispatch(dataPlatos());
+}, [])
+
+const datosDePlatos = useSelector(state => state.platos)
+console.log(datosDePlatos)
     
+
+const nombreRestaurante = infoRestaurante.nombre; 
+
+// const platosFiltrados = datosDePlatos.filter(plato => plato.idRestaurante === nombreRestaurante)
+// console.log(platosFiltrados);
+
 
     const handleClickPlato = ()=> {
         navigate("/platos")
     }
+    
   return (
     <section className="container__restaurante">
         <img src={celularBarra} className='celular' alt="Estado celular" /> 
@@ -101,3 +117,4 @@ const DetailsRestaurant = () => {
 }
 
 export default DetailsRestaurant
+
