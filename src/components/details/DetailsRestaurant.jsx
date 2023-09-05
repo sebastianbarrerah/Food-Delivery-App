@@ -41,17 +41,16 @@ useEffect(() => {
 }, [])
 
 const datosDePlatos = useSelector(state => state.platos)
-console.log(datosDePlatos)
     
 
 const nombreRestaurante = infoRestaurante.nombre; 
 
 const platosFiltrados = datosDePlatos.filter(plato => plato.idRestaurante === nombreRestaurante)
-console.log(platosFiltrados);
 
 
-    const handleClickPlato = ()=> {
-        navigate("/platos")
+
+    const handleClickPlato = (plato)=> {
+        navigate("/platos" , {state:plato} , {restaurante: infoRestaurante})
     }
     
   return (
@@ -84,7 +83,7 @@ console.log(platosFiltrados);
             <div className='container__comidas'>
                 {
                     platosFiltrados.map((plato, index)=>(
-                        <div className='info__comidas' onClick={handleClickPlato} key={index}>
+                        <div className='info__comidas' onClick={() => {handleClickPlato(plato)}} key={index}>
                         <img src={plato.image} className='comidas' alt='comida'/>
                         <h4>{plato.nombre}</h4>   
                         <span>{plato.precio}</span>

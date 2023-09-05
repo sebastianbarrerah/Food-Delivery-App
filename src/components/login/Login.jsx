@@ -11,6 +11,7 @@ import { auth } from '../../Firebase/firebaseConfig'
 import { RecaptchaVerifier, signInWithPhoneNumber, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useDispatch } from 'react-redux'
 import logout from '../auth'
+import { addUsers } from '../../features/usersSlice/usersSlice'
 
 
 const Login = () => {
@@ -41,9 +42,20 @@ const Login = () => {
         `Te enviaremos un mensaje para confirmar a ${number}`,
         "success"
       );
+
+      console.log("numero de telefono", response.user.number);
+      // const dataUserCel = {
+      //   nombre: user.displayName,
+      //   email: user.email,
+      //   uid: user.uid,
+      //   foto: user.photoURL,
+      //   numero: user.phoneNumber
+      // }
+        
+      dispatch(addUsers(response));
       navigate('/verificacion');
-      
-      
+
+
     } catch (error) {
       console.log(error.code);
       Swal.fire(
@@ -53,7 +65,6 @@ const Login = () => {
       );
     }
   };
-
 
   const onSubmit = (data) => {
     generateRecaptcha(data.phone);
@@ -65,17 +76,23 @@ const Login = () => {
   const loginGoogle = async () => {
     try {
       const provider = new GoogleAuthProvider()
-        const dataGoogle = await signInWithPopup(auth, provider)
-        Swal.fire(
-          "Excelente",
-          `Usuario autenticado`,
-          "success"
-        );
-  
-        console.log(dataGoogle);
-        navigate('/location')
-        // dispatch(logout(dataGoogle));
-        logout(dispatch)();
+      const {user} = await signInWithPopup(auth, provider)
+      Swal.fire(
+        "Excelente",
+        `Usuario autenticado`,
+        "success"
+      );
+
+      const dataUser = {
+        nombre: user.displayName,
+        email: user.email,
+        uid: user.uid,
+        foto: user.photoURL,
+        numero: user.phoneNumber
+      }
+      dispatch(addUsers(dataUser));
+      logout(dispatch)();
+      navigate('/location')
     } catch (error) {
       Swal.fire(
         "Ops!",
@@ -112,11 +129,11 @@ const Login = () => {
           <span className='derechos__autor'>Terms of use</span>
         </div>
 
-      <div className='btn__autenticacion'>
-      <button type="submit" className='btn__next1'>Login</button>
-      <button  className='btn__next1' type="button" onClick={loginGoogle}>Iniciar sesión con Google</button>
-      <button onClick={()=>navigate('/initialSesion')} className='btn__next1' type="button">Iniciar sesión con email y contraseña</button>
-      </div>
+        <div className='btn__autenticacion'>
+          <button type="submit" className='btn__next1'>Login</button>
+          <button className='btn__next1' type="button" onClick={loginGoogle}>Iniciar sesión con Google</button>
+          <button onClick={() => navigate('/initialSesion')} className='btn__next1' type="button">Iniciar sesión con email y contraseña</button>
+        </div>
 
       </form>
       <div id="recaptch-container"></div>
