@@ -124,7 +124,7 @@ const restaurantesFiltrados = restaurantes.filter((restaurant) => restaurant.tip
                 <span className='direccion__name'>DELIVER TO</span>
                 <span className='direccion'>{ubicacion}</span>
             </div>
-            <button onClick={salir}>desconectar</button>
+            <button onClick={salir} className='desconectar__home'>desconectar</button>
 
         </div>
 
