@@ -31,6 +31,7 @@ import { estadoRestaurante } from '../../features/restaurantSlice/restaurantSlic
 import logout from '../auth'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../Firebase/firebaseConfig'
+import {categoria} from './categoria'
 
 
 const Home = () => {
@@ -38,6 +39,8 @@ const Home = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
     const location = useLocation();
+    const [restaurantes, setRestaurantes] = useState([]);
+    const [filtroCategoria, setFiltroCategoria] = useState([]);
 
     useEffect(() => {
       if (location.state) {
@@ -45,19 +48,17 @@ const Home = () => {
     }
   }, [])
 
+
 //   useEffect(() => {    
 //     dispatch(dataPlatos());
 // }, [dispatch])
-
 
     const clickDetalles = (restaurant) => {
         console.log();
         navigate(`/restaurante/${restaurant.nombre}`, {state:restaurant})
     }
     
-    const [restaurantes, setRestaurantes] = useState([]);
-
-
+ 
     useEffect(() => {
         const fetchRestaurantes = async () => {
           try {
@@ -74,6 +75,7 @@ const Home = () => {
                 categoria: data.categoria, 
                 tipoRestaurante : data.tipoRestaurante,
                 descripcion: data.descripcion,  
+                tipoCategoria : data.tipoCategoria, 
                 // Agrega más campos según tu estructura de datos
               });
               
@@ -99,6 +101,18 @@ const Home = () => {
       }
     };
 
+// console.log(restaurantes)
+// console.log(categoria)
+
+const filtrarCategoria = (categoria) => {
+  setFiltroCategoria(categoria)
+}
+
+console.log(filtroCategoria)
+
+const restaurantesFiltrados = restaurantes.filter((restaurant) => restaurant.tipoCategoria === filtroCategoria);
+
+  console.log(restaurantesFiltrados)
 
 
   return (
@@ -133,8 +147,8 @@ const Home = () => {
 
         <div className='botones__categorias'>
             {
-                restaurantes.map((element, index) => (
-                    <button className='boton__categoria' key={index}>{element.tipoRestaurante}</button>
+                categoria.map((element, index) => (
+                    <button className='boton__categoria' key={index} onClick={()=>{filtrarCategoria(element.label)}}>{element.label}</button>
                 ))
             }
         </div>

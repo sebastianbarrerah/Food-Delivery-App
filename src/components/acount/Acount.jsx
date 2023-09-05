@@ -25,9 +25,9 @@ const Acount = () => {
               }
 
 
-            // console.log(data)
-            // console.log(photo)
-            // console.log('cargo photo')
+            console.log(data)
+            console.log(photo)
+            console.log('cargo photo')
 
             
            } catch (error) {
