@@ -13,6 +13,7 @@ import '../searchLoaded/searchLoaded.scss';
 
 
 function Search() {
+ 
   const datos = useSelector(state => state.restaurantes)
   console.log(datos)
   const [filtro, setFiltro] = useState([]);
@@ -69,7 +70,7 @@ function Search() {
         <img src={HomeIcono} alt="" onClick={() => { navigate("/home") }} />
         <img src={SearchIcono} alt="" />
         <img src={TimeIcono} alt="" />
-        <img src={ProfileIcono} alt="" />
+        <img src={ProfileIcono} alt="" onClick={() => { navigate("/profile") }}/>
       </div>
     </>
   );

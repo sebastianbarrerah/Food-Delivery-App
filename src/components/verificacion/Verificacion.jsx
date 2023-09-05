@@ -25,6 +25,7 @@ const Verificacion = () => {
       );
       const userCredential = await signInWithCredential(auth, credential);
       const user = userCredential.user;
+   
       Swal.fire(
         "Excelente",
         `Usuario autenticado`,

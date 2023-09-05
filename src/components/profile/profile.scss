@@ -2,25 +2,27 @@
 @import "../../assets/estilos/reset.scss";
 
 @media (min-width: 500px) and (max-width: 900px) {
-    .profile__User{
+    .profile__User {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
         font-family: $letraCuerpo;
-        .imgProfile{
+
+        .imgProfile {
             width: 12%;
         }
     }
 
-    .profile__data{
+    .profile__data {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
         margin-top: 2rem;
         font-family: $letraCuerpo;
-        .settings{
+
+        .settings {
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -29,17 +31,36 @@
             border-radius: 10px;
             height: 3rem;
             padding: 4%;
-            .span{
+
+            
+            .span {
                 width: 85%;
-                color:rgb(66, 66, 66)
+                color: rgb(66, 66, 66);
             }
-            .spanLanguage{
+            
+            .spanLanguage {
                 font-size: 12px;
-                color:rgb(66, 66, 66)
+                color: rgb(66, 66, 66)
+            }
+        }
+        .settings2 {
+            background-color:#d45454;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 95%;
+            border-radius: 10px;
+            height: 3rem;
+            padding: 4%;
+            font-weight: bold;
+            justify-content: center;
+            .span__cerrar {
+                color: white;
             }
         }
     }
-    .footer__profile{
+
+    .footer__profile {
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -49,26 +70,29 @@
 
     }
 }
-@media(max-width:500px){
-    .profile__User{
+
+@media(max-width:500px) {
+    .profile__User {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
         font-family: $letraCuerpo;
-        .imgProfile{
+
+        .imgProfile {
             width: 12%;
         }
     }
 
-    .profile__data{
+    .profile__data {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
         margin-top: 2rem;
         font-family: $letraCuerpo;
-        .settings{
+
+        .settings {
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -77,17 +101,37 @@
             border-radius: 10px;
             height: 3rem;
             padding: 4%;
-            .span{
+
+            .span {
                 width: 85%;
-                color:rgb(66, 66, 66)
+                color: rgb(66, 66, 66)
             }
-            .spanLanguage{
+
+            .spanLanguage {
                 font-size: 12px;
-                color:rgb(66, 66, 66)
+                color: rgb(66, 66, 66)
+            }
+
+
+        }
+        .settings2 {
+            background-color: alpha($color: #b84343);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 95%;
+            border-radius: 10px;
+            height: 3rem;
+            padding: 4%;
+    
+            .span__cerrar {
+                width: 85%;
+                color: rgb(66, 66, 66)
             }
         }
     }
-    .footer__profile{
+
+    .footer__profile {
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -97,4 +141,3 @@
     }
 
 }
-

@@ -12,6 +12,10 @@ import InitialSesion from '../iniatialSesion/initialSesion';
 import Search from '../search/search';
 import RoutesPrivates from "./RoutesPrivates";
 import Adress from "../adress/adress";
+import Profile from "../profile/profile";
+import ProfileEdit from "../profileEdit/profileEdit";
+import Pay from "../pay/pay";
+import DetallesOrden from "../detallesOrden/detallesOrden";
 
 
 const Router = () => {
@@ -22,14 +26,18 @@ const Router = () => {
                 <Route path="/slider" element={<Slider/>}/>
                 <Route path="/verificacion" element={<Verificacion/>}/>
                 <Route path="/initialSesion" element={<InitialSesion/>}/>
-                <Route path="/acount" element={<Acount/>}/>            
+                <Route path="/acount" element={<Acount/>}/>   
+                <Route path="/detallesOrden" element={<DetallesOrden />}/>
                 <Route element={<RoutesPrivates/>}>
                     <Route path="/location" element={<Location/>}/>
                     <Route path="/home" element={<Home/>}/>            
                     <Route path="/search" element={<Search />}/>
                     <Route path="/restaurante/:restaurante" element={<DetailsRestaurant />}/>
+                    <Route path="/pays" element={<Pay/>}/>
                     <Route path="/platos" element={<Plato />}/>
                     <Route path="/adress" element={<Adress />}/>
+                    <Route path="/profile" element={<Profile/>}/>
+                    <Route path="/profileEdit" element={<ProfileEdit/>}/>
                 </Route>
                 
             </Routes>
@@ -37,3 +45,4 @@ const Router = () => {
     )
 }
 export default Router;
+

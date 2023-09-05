@@ -176,7 +176,7 @@ const Home = () => {
                 <img src={home} alt="" className='icono__figure' onClick={()=>{navigate('/home')}}/>
                 <img src={search} alt="" className='icono__figure' onClick={()=>{navigate('/search')}}/>
                 <img src={orden} alt="" className='icono__figure'/>
-                <img src={perfil} alt="" className='icono__figure'/>
+                <img src={perfil} alt="" className='icono__figure' onClick={()=>{navigate('/profile')}}/>
             </figure>
         </footer>
 

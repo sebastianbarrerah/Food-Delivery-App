@@ -4,7 +4,7 @@ import { useForm, useWatch } from 'react-hook-form'
 import './acount.scss'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { auth } from '../../Firebase/firebaseConfig'
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 const Acount = () => {
 
@@ -13,14 +13,27 @@ const Acount = () => {
 
     const onSubmit= async (data) => {
         try {
-            const email= data.email; 
-            const password = data.password; 
-            const {user} = await createUserWithEmailAndPassword(auth ,email, password);
-            console.log(user)
+             const email = data.email
+             const password = data.password
+             const name = data.name
+             const photo = data.photo 
            
+            const {user} = await createUserWithEmailAndPassword(auth ,email, password );
+            console.log(user)
+
+            const {accessToken, displayName, photoURL} = user.auth.currentUser;
+            
+            const dataUser = {
+                displayName: name,
+                foto: photo     
+            }
+            await updateProfile(auth.currentUser, dataUser)
+
            console.log('registro correcto')
+           navigate('/initialSesion')
           } catch (error) {
             console.log('registro incorrecto', error.code)
+            console.log('registro incorrecto', error.message)
           }
     }
 

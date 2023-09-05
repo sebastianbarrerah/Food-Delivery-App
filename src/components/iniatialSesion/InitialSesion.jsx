@@ -8,12 +8,13 @@ import { auth } from '../../Firebase/firebaseConfig'
 import Swal from 'sweetalert2'
 import { useDispatch, useSelector } from 'react-redux'
 import logout from '../auth.js'
+import { addUsers } from '../../features/usersSlice/usersSlice'
 
 
 const InitialSesion = () => {
     const user = useSelector(state => state.online)
     const dispatch = useDispatch()
-    const { register, handleSubmit, reset, formState: { errors }, watch} = useForm();
+    const { register, handleSubmit, reset} = useForm();
     
     const navigate = useNavigate()
 
@@ -27,7 +28,15 @@ const InitialSesion = () => {
                 `Bienvenido ${user.displayName}`,
                 "success"
             );
+            const dataUser = {
+                nombre: user.displayName,
+                email: user.email,
+                uid: user.uid,
+                foto: user.photoURL,
+                numero: user.phoneNumber,
+            }
            reset();
+           dispatch(addUsers(dataUser));
            logout(dispatch)();
            
         } catch (error) {
