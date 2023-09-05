@@ -21,6 +21,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../Firebase/firebaseConfig";
 import logout from "../auth";
 import { resetUsers } from "../../features/usersSlice/usersSlice";
+import { eliminarOrden } from "../../features/ordenSlice/ordenSlice";
 
 
 function Profile() {
@@ -35,6 +36,7 @@ function Profile() {
       console.log('Usuario desconectado');
       dispatch(logout(false));
       dispatch(resetUsers())
+      dispatch(eliminarOrden())
     } catch (error) {
       console.log('Error al desconectar:', error.code);
     }

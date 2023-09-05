@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import celularBarra from '../../assets/imagenes/barraCelular.png'
 import atras from '../../assets/imagenes/Back.png'
@@ -6,40 +7,46 @@ import principal from '../../assets/imagenes/confirmadoyTiempo.png'
 import './detallesOrden.scss'
 import { addDoc, collection, getDocs, or } from 'firebase/firestore'
 import { db } from '../../Firebase/firebaseConfig'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
+import { set } from 'react-hook-form'
+import { agregarOrden } from '../../features/ordenSlice/ordenSlice'
 
 
 
 const DetallesOrden = () => {
     const usuario = useSelector(state => state.users)
-    console.log(usuario[0].nombre);
-   
+   const dispatch = useDispatch()
     const [ordenFinal, setordenFinal] = useState({})
     const [precio, setPrecio] = useState(0)
     const [cantidad, setCantidad] = useState(0)
+    const [notasPedido, setNotasPedido] = useState('')
+    const [total, setTotal] = useState(0)
 
     const datosCompra = {
         usuario: usuario[0].nombre,
         nombre: ordenFinal.nombre,
         cantidad: cantidad,
         precio: precio,
-        idRestaurante: ordenFinal.idRestaurante
+        idRestaurante: ordenFinal.idRestaurante,
+        nota: notasPedido,
+        total: total
       }
     
-    const allOrdenes = async () => {
-        const traerOrdenes = await getDocs(collection(db, "ordenes"));
-        traerOrdenes.forEach(async (doc) => {
-            const data = doc.data()
-            return data
-        });
-    }
+    // const allOrdenes = async () => {
+    //     const traerOrdenes = await getDocs(collection(db, "ordenes"));
+    //     traerOrdenes.forEach(async (doc) => {
+    //         const data = doc.data()
+    //         return data
+    //     });
+    // }
 
-    console.log(datosCompra);
+  
     const llevarOrdenes = async (datosCompra) => {
         try {
           const docRef = await addDoc(collection(db, "ordenes"), datosCompra);
           console.log("Documento agregado con ID: ", docRef.id);
+          dispatch(agregarOrden(datosCompra))
         } catch (error) {
           console.error(error.code);
         }
@@ -47,8 +54,6 @@ const DetallesOrden = () => {
       
       // Llamar a la función con los datos que deseas agregar
       llevarOrdenes(datosCompra);
-
-
 
 
         const location = useLocation()
@@ -65,35 +70,38 @@ const DetallesOrden = () => {
           }
         }, [])
         useEffect(() => {
+          if (location.state.total) {
+            setTotal(location.state.total)
+          }
+        }, [])
+        useEffect(() => {
           if (location.state.cantidad) {
             setCantidad(location.state.cantidad)
        
           }
         }, [])
+        useEffect(() => {
+          if (location.state.notas) {
+            setNotasPedido(location.state.notas)
+          }
+        }, [])
         
-    allOrdenes()
-  
+  const navigate = useNavigate()
 
     return (
         <section className="container__pay">
             <img src={celularBarra} className='celular' alt="Estado celular" />
-            <img src={atras} className='atras' alt="Estado celular"  />
+            <img src={atras} className='atras' alt="Estado celular"  onClick={() => navigate('/home')}/>
            
            <img src={principal} alt="" />
             <div className="container__compra">
                 <h1>current orden</h1>
                 <div className="food__found" >
-                    <img className="img" src="" alt="" />
-                    <span className='btn__plus'>
-                        <button className='btn__contador' >+1</button>
-                        
-                        <button className='btn__contador' >-1</button>
-                    </span>
-
+                    <img className="img" src={ordenFinal.image} alt="" />
                     <article className="data">
-                        <span className="spanFood">fdgdfgdg</span>
+                        <span className="spanFood">{ordenFinal.nombre}</span>
                         <span className="spanPrice">
-                           fghfghfg
+                           {ordenFinal.precio}
                         </span>
                     </article>
                 </div>
@@ -102,7 +110,11 @@ const DetallesOrden = () => {
             <div className='container__pagar'>
                 <div className="total__pagar">
                     <h3 className='subtitulo'>Producto</h3>
-                    <span> 6$</span>
+                    <span> {ordenFinal.precio} $</span>
+                </div>
+                <div className="total__pagar">
+                    <h3 className='subtitulo'>Adiciones</h3>
+                    <span> {cantidad}</span>
                 </div>
                 <div className="total__pagar">
                     <h3 className='subtitulo'>Delivery</h3>
@@ -111,10 +123,10 @@ const DetallesOrden = () => {
                 <hr />
                 <div className='subtotal'>
                     <h3 className='total__pago'>Total</h3>
-                    <span></span>
+                    <span>{`${total}$`}</span>
                 </div>
             </div>
-            <button className='button__location'>Order</button>
+            <button className='button__location' onClick={() => {navigate("/ordenAceptada")}}>suppor</button>
 
         </section>
     )

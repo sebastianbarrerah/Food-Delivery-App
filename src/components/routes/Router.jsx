@@ -16,6 +16,9 @@ import Profile from "../profile/profile";
 import ProfileEdit from "../profileEdit/profileEdit";
 import Pay from "../pay/pay";
 import DetallesOrden from "../detallesOrden/detallesOrden";
+import OrderAccepted from "../orderAccepted/orderAccepted";
+import Orders from "../orders/orders";
+import OrderDetails from "../ordersDetails/orderDetails";
 
 
 const Router = () => {
@@ -38,6 +41,9 @@ const Router = () => {
                     <Route path="/adress" element={<Adress />}/>
                     <Route path="/profile" element={<Profile/>}/>
                     <Route path="/profileEdit" element={<ProfileEdit/>}/>
+                    <Route path="/ordenAceptada" element={<OrderAccepted/>}/>
+                    <Route path="/ordenes" element={<Orders/>}/>
+                    <Route path="/orderDetails" element={<OrderDetails />}/>
                 </Route>
                 
             </Routes>
@@ -45,4 +51,5 @@ const Router = () => {
     )
 }
 export default Router;
+
 

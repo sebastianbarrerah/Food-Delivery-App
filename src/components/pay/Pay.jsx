@@ -12,10 +12,9 @@ const Pay = () => {
     const navigate = useNavigate()
     const [datosPedido, setDatosPedido] = useState({})
     const [seleccionados, setSeleccionados] = useState([])
-    const [contador, setContador] = useState({})
+    const [contador, setContador] = useState(0)
     const [cantidad, setCantidad] = useState(0)
-
-
+    const [notasDelUsuario, setNotasDelUsuario] = useState('')
 
     const location = useLocation()
     useEffect(() => {
@@ -37,6 +36,15 @@ const Pay = () => {
     }, []);
 
     let multiplicacion = cantidad * datosPedido.precio;
+
+    const notaUsuario = (e) => {
+        const notaPedido = e.target.value;
+        setNotasDelUsuario(notaPedido);
+    
+    }
+
+    const totalVariables = multiplicacion + contador + 10;
+
 
     return (
         <section className="container__pay">
@@ -82,12 +90,16 @@ const Pay = () => {
 
             <div className='notas'>
                 <h2 className='title__note'>Note</h2>
-                <input type="text" className='input__note' placeholder='Write a note' />
+                <input type="text" className='input__note' placeholder='Write a note' onChange={(e) => {notaUsuario(e)}}/>
             </div>
             <div className='container__pagar'>
                 <div className="total__pagar">
                     <h3 className='subtitulo'>Producto</h3>
                     <span> {cantidad * datosPedido.precio <= - 0 ? "agrega cantidades" : cantidad * datosPedido.precio } $</span>
+                </div>
+                <div className="total__pagar">
+                    <h3 className='subtitulo'>Adiciones</h3>
+                    <span> {contador}$</span>
                 </div>
                 <div className="total__pagar">
                     <h3 className='subtitulo'>Delivery</h3>
@@ -96,11 +108,11 @@ const Pay = () => {
                 <hr />
                 <div className='subtotal'>
                     <h3 className='total__pago'>Total</h3>
-                    <span>{`${multiplicacion + 10}$`}</span>
+                    <span>{`${totalVariables}$`}</span>
                 </div>
             </div>
             <button className='button__location' onClick={() => navigate('/detallesOrden'
-                , { state: { datosDetalles: datosPedido, precio: multiplicacion + 10, cantidad: cantidad} }
+                , { state: { datosDetalles: datosPedido, precio: multiplicacion + 10, cantidad: cantidad, notas: notasDelUsuario, total: totalVariables} }
             )}>Order</button>
 
         </section>

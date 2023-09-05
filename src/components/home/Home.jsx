@@ -32,6 +32,7 @@ import logout from '../auth'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../Firebase/firebaseConfig'
 import {categoria} from './categoria'
+import { eliminarOrden } from '../../features/ordenSlice/ordenSlice'
 
 
 const Home = () => {
@@ -96,6 +97,7 @@ const Home = () => {
         await signOut(auth); 
         console.log('Usuario desconectado');
         dispatch(logout(false));
+        dispatch(eliminarOrden())
       } catch (error) {
         console.log('Error al desconectar:', error.code);
       }
@@ -206,7 +208,7 @@ const restaurantesFiltrados = restaurantes.filter((restaurant) => restaurant.tip
             <figure className='figure__home'>
                 <img src={home} alt="" className='icono__figure' onClick={()=>{navigate('/home')}}/>
                 <img src={search} alt="" className='icono__figure' onClick={()=>{navigate('/search')}}/>
-                <img src={orden} alt="" className='icono__figure'/>
+                <img src={orden} alt="" className='icono__figure' onClick={()=>navigate("/ordenes")}/>
                 <img src={perfil} alt="" className='icono__figure' onClick={()=>{navigate('/profile')}}/>
             </figure>
         </footer>
