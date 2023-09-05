@@ -73,12 +73,6 @@ const platosFiltrados = datosDePlatos.filter(plato => plato.idRestaurante === no
                 </div>
             </div>
 
-            <div className='container__restaurantes'>
-                <button className='btn__restaurantes'>btn1</button>
-                <button className='btn__restaurantes'>btn2</button>
-                <button className='btn__restaurantes'>btn3</button>
-                <button className='btn__restaurantes'>btn4</button>
-            </div>
 
             <div className='container__comidas'>
                 {

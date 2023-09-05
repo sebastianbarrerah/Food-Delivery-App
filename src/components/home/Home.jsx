@@ -101,18 +101,12 @@ const Home = () => {
       }
     };
 
-// console.log(restaurantes)
-// console.log(categoria)
-
 const filtrarCategoria = (categoria) => {
   setFiltroCategoria(categoria)
 }
 
-console.log(filtroCategoria)
-
 const restaurantesFiltrados = restaurantes.filter((restaurant) => restaurant.tipoCategoria === filtroCategoria);
 
-  console.log(restaurantesFiltrados)
 
 
   return (
@@ -154,33 +148,56 @@ const restaurantesFiltrados = restaurantes.filter((restaurant) => restaurant.tip
         </div>
 
         <div className="container__restaurantes">
+        {
+          (restaurantesFiltrados.length === 0  || filtroCategoria === 'All' ) ? (
+            restaurantes.map((restaurant, index)=>(
+              <div className="restaurantes" onClick={() => {clickDetalles(restaurant)}} key={index}>
+                 <figure className='fig__imgRestaurantes'>
+                 <img src={restaurant.imagen} alt="" className='img__Restaurantes'/>
+                 </figure>
+                 
+                  <div className="restaurante__restaurantes">
+                      <h3 className='nombre__restaurante'>{restaurant.nombre}</h3>
+         
+                      {restaurant.categoria === 3 ? (
+                   <img src={star3} alt="" className='stars' />
+                 ) : restaurant.categoria === 4 ? (
+                   <img src={star4} alt="" className='stars' />
+                 ) :  (
+                   <img src={star5} alt="" className='stars' />
+                 )}
+         
+                      {/* <img src={star4} alt="" className='stars'/> */}
+                      <span className='horarios__restaurante'>{restaurant.horario}</span>
+                      <span className='precio__restaurante'>Before you <strong>4$</strong> </span>
+                  </div>
+              </div>   ))
+
+          ): (restaurantesFiltrados.map((element, index)=>(
         
-     {
-     restaurantes.map((restaurant, index)=>(
-     <div className="restaurantes" onClick={() => {clickDetalles(restaurant)}} key={index}>
-        <figure className='fig__imgRestaurantes'>
-        <img src={restaurant.imagen} alt="" className='img__Restaurantes'/>
-        </figure>
-        
-         <div className="restaurante__restaurantes">
-             <h3 className='nombre__restaurante'>{restaurant.nombre}</h3>
-
-             {restaurant.categoria === 3 ? (
-          <img src={star3} alt="" className='stars' />
-        ) : restaurant.categoria === 4 ? (
-          <img src={star4} alt="" className='stars' />
-        ) :  (
-          <img src={star5} alt="" className='stars' />
-        )}
-
-             {/* <img src={star4} alt="" className='stars'/> */}
-             <span className='horarios__restaurante'>{restaurant.horario}</span>
-             <span className='precio__restaurante'>Before you <strong>4$</strong> </span>
-         </div>
-     </div>   ))
-     }
-
-                                   
+              <div className="restaurantes" onClick={() => {clickDetalles(element)}} key={index}>
+                 <figure className='fig__imgRestaurantes'>
+                 <img src={element.imagen} alt="" className='img__Restaurantes'/>
+                 </figure>
+                 
+                  <div className="restaurante__restaurantes">
+                      <h3 className='nombre__restaurante'>{element.nombre}</h3>
+         
+                      {element.categoria === 3 ? (
+                   <img src={star3} alt="" className='stars' />
+                 ) : element.categoria === 4 ? (
+                   <img src={star4} alt="" className='stars' />
+                 ) :  (
+                   <img src={star5} alt="" className='stars' />
+                 )}
+         
+                      {/* <img src={star4} alt="" className='stars'/> */}
+                      <span className='horarios__restaurante'>{element.horario}</span>
+                      <span className='precio__restaurante'>Before you <strong>4$</strong> </span>
+                  </div>
+              </div>  
+          )))
+        }                     
         </div>
 
         <button className='button__home'>View card</button> 

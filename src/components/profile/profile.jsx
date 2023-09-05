@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './profile.scss'
 import barraCel from "../../assets/imagenes/barraCelular.png";
 import HomeIcono from "../../assets/imagenes/Home1.png";
@@ -20,39 +20,48 @@ import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { auth } from "../../Firebase/firebaseConfig";
 import logout from "../auth";
+import { resetUsers } from "../../features/usersSlice/usersSlice";
 
 
 function Profile() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const datosPerfil = useSelector(state => state.users)
-
   const userPhoto = useSelector(state => state.photo.userPhoto);
   // console.log(userPhoto)
-
+  
   const cerrarSesion = async () => {
     try {
       await signOut(auth); 
       console.log('Usuario desconectado');
       dispatch(logout(false));
+      dispatch(resetUsers())
     } catch (error) {
       console.log('Error al desconectar:', error.code);
     }
   };
+  
+  const datosPerfil = useSelector(state => state.users)
+  useEffect(() => {
+    console.log(datosPerfil);
+  }, [])
 
+  console.log(datosPerfil[0].foto, "esta es la foto que se carga");
+  console.log(datosPerfil);
+  
 
   return (
     <>
       <img className="dataMobile" src={barraCel} alt="" />
 
       <div className="profile__User">
-      {/* <img className="imgProfile" src={datosPerfil[0].foto} alt="" /> */}
-        <img className="imgProfile" src={userPhoto} alt="" />
-        <span className="spanProfile">{
-    (datosPerfil[0].nombre === "") ? (
-      datosPerfil[0].numero
-    ) :
-      datosPerfil[0].nombre
+      <img className="imgProfile" src={datosPerfil[0].foto} alt="" />
+
+        <span className="spanProfile">
+          {
+            (datosPerfil[0].nombre === null) ? (
+              datosPerfil[0].numero
+            ) :
+            (datosPerfil[0].nombre)
   }</span>
       </div>
 

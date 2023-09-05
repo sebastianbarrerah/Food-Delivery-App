@@ -13,10 +13,15 @@ const usersSlice = createSlice({
             [...state,
             action.payload
             ]
+        },
+        resetUsers: (state) => {
+            // Esta acción resetea completamente el estado de platos a un array vacío
+            return [];
         }
+
     }
 
 })
 
 export default usersSlice.reducer
-export const { addUsers, editUsers } = usersSlice.actions
+export const { addUsers, editUsers, resetUsers } = usersSlice.actions

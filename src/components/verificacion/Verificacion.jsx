@@ -11,6 +11,7 @@ import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
 import logout from '../auth.js'
 import { useDispatch } from 'react-redux'
+import { addUsers } from '../../features/usersSlice/usersSlice'
 
 const Verificacion = () => {
   const navigate = useNavigate()
@@ -23,15 +24,26 @@ const Verificacion = () => {
         window.confirmationResult.verificationId,
         verificationCode
       );
-      const userCredential = await signInWithCredential(auth, credential);
-      const user = userCredential.user;
-   
+      const {user} = await signInWithCredential(auth, credential);
+
+      const dataUser = {
+        nombre: user.displayName,
+        email: user.email,
+        uid: user.uid,
+        foto: user.photoURL,
+        numero: user.phoneNumber
+      }
+      
       Swal.fire(
         "Excelente",
         `Usuario autenticado`,
         "success"
       );
+
+
       logout(dispatch)();
+      
+      dispatch(addUsers(dataUser));
       navigate('/location')
   
       console.log("Usuario autenticado:", user);

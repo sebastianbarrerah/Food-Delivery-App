@@ -23,13 +23,9 @@ const Acount = () => {
             if (photo) {
                 dispatch(setUserPhoto(photo)); 
               }
-
-
-            console.log(data)
-            console.log(photo)
-            console.log('cargo photo')
-
-            
+            // console.log(data)
+            // console.log(photo)
+            // console.log('cargo photo')
            } catch (error) {
             //alert
             console.log(error)
@@ -50,7 +46,7 @@ const Acount = () => {
             
             const dataUser = {
                 displayName: name,
-                foto: photo     
+                photoURL: photo,     
             }
             await updateProfile(auth.currentUser, dataUser)
 

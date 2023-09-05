@@ -42,22 +42,14 @@ const Login = () => {
         `Te enviaremos un mensaje para confirmar a ${number}`,
         "success"
       );
-
-      console.log("numero de telefono", response.user.number);
-      // const dataUserCel = {
-      //   nombre: user.displayName,
-      //   email: user.email,
-      //   uid: user.uid,
-      //   foto: user.photoURL,
-      //   numero: user.phoneNumber
-      // }
-        
-      dispatch(addUsers(response));
+      
       navigate('/verificacion');
 
 
     } catch (error) {
       console.log(error.code);
+      console.log(error);
+      console.log(error.message);
       Swal.fire(
         "Ops!",
         `Ocurrió un error al realizar tu solicitud, intentalo de nuevo`,
@@ -70,6 +62,7 @@ const Login = () => {
     generateRecaptcha(data.phone);
     const appVerifier = window.recaptchaVerifier;
     const newPhone = data.phone;
+    console.log(newPhone);
     sendSms(newPhone, appVerifier);
   }
 

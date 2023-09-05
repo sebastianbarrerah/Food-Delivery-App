@@ -1,20 +1,23 @@
 export const categoria = [
- 
+    {
+        label: "All",
+        value: 1,
+    }, 
     {
         label: "Pizza",
-        value: 1,
-    },
-    {
-        label: "Burger",
         value: 2,
     },
     {
-        label: "French fries",
+        label: "Burger",
         value: 3,
     },
     {
-        label: "Meat",
+        label: "French fries",
         value: 4,
+    },
+    {
+        label: "Meat",
+        value: 5,
     }
-
+   
 ];
