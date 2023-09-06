@@ -5,13 +5,15 @@ import back from "../../assets/imagenes/Back.png"
 import ProfileUser from "../../assets/imagenes/ProfileImg.png";
 import liveChat from "../../assets/imagenes/LiveChat.png";
 import send from "../../assets/imagenes/sendd.png";
+import { useNavigate } from 'react-router-dom';
 
 function LiveChat() {
+  const navigate = useNavigate()
   return (
     <>
     <img className="dataMobile" src={barraCel} alt="" />
       <div className="title__adress">
-        <img src={back} alt="" />
+      <img src={back} alt="" onClick={() => navigate(-1)}/>
         <span className="title__page">Chat with specialist</span>
       </div>
       

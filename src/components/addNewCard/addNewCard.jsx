@@ -3,13 +3,15 @@ import "./addNewCard.scss";
 import barraCel from "../../assets/imagenes/barraCelular.png";
 import back from "../../assets/imagenes/Back.png";
 import eyeIcono from "../../assets/imagenes/eye.png"
+import { useNavigate } from "react-router-dom";
 
 function AddNewCard() {
+  const navigate = useNavigate()
   return (
     <>
       <img className="dataMobile" src={barraCel} alt="" />
       <div className="title__adress">
-        <img src={back} alt="" />
+      <img src={back} alt="" onClick={() => navigate(-1)}/>
         <span className="title__page">Add new card</span>
       </div>
 

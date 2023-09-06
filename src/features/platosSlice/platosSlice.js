@@ -11,7 +11,6 @@ const platosSlice = createSlice({
             state.push(action.payload)
         },
         resetPlatos: (state) => {
-            // Esta acción resetea completamente el estado de platos a un array vacío
             return [];
         }
     }

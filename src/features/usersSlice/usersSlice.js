@@ -15,7 +15,6 @@ const usersSlice = createSlice({
             ]
         },
         resetUsers: (state) => {
-            // Esta acción resetea completamente el estado de platos a un array vacío
             return [];
         }
 

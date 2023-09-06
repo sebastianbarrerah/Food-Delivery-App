@@ -2,11 +2,17 @@
 @import "../../assets/estilos/reset.scss";
 
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .container__pay{
         width: 100%;
         height: 100vh;
         padding: 0 15px;
+        .portada{
+            width: 90%;
+            margin-bottom: 30px;
+            margin-top: 10px;
+        }
+        
         .atras{
             height: 20px;
             position: relative;

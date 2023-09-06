@@ -2,22 +2,42 @@
 @import "../../assets/estilos/reset.scss";
 
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .container__home{
         font-family: $letraCuerpo;
         width: 100%;
         height: 100vh;
         padding: 0 20px;
+        .button__location{
+            width: 70%;
+            color: $oscuro;
+            background-color: $amarillo;
+            height: 50px;
+            border-radius: 10px;
+            border: none;
+            position: fixed;
+            bottom: 0;
+            margin: 10% 15%;
+            font-size: 18px;
+        }
+        .button__location::first-letter {
+            font-size: 14px;
+            color: #fff;
+            background-color: rgb(27, 14, 14);
+            position: relative;
+            border-radius: 8px;
+            padding: 8px;
+          }
         .desconectar__home{
             position: relative;
-            left: 58%;
+            left: 45%;
             border-radius: 10px;
             border: none;
             background-color: #f73d3d;
             padding: 10px;
             color: white;
             font-weight: 100;
-            bottom: 10px;
+            bottom: 5px;
         }
         .div__home1{
             display: flex;
@@ -33,14 +53,15 @@
             gap: 7px;
             .direccion__name{
                 color: $amarillo;
+                margin-top: 5px;
             }
         }
-        .mySwiper{
+        .mySwiper1{
             margin-bottom: 20px;
         }
         .swiper-slide img{
             height: 120px;
-            width: 380px;
+            width: 90%;
             margin-top: 40px;
             border-radius: 15px;
         }     
@@ -76,12 +97,13 @@
                 height: 21%;
                 align-items: center;
                 .fig__imgRestaurantes{
-                    width: 40vw;
+                    width: 30vw;
                     .img__Restaurantes{
-                        width: 80%;
+                        width: 90%;
+                        border-radius: 50px;
                     }
                 }
-                .info__restaurantes{
+                .restaurante__restaurantes{
                     display: flex;
                     flex-direction: column;
                     gap: 10px;

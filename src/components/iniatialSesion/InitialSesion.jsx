@@ -73,10 +73,6 @@ const InitialSesion = () => {
         }
     }
  
-    // const goLocation = () => {
-    //     navigate('/location')
-    // }
- 
   return (
 
     <section className='container__create1'>
@@ -84,14 +80,14 @@ const InitialSesion = () => {
     <h1 className='titulo__create1'>Log in</h1>
 
         <form className='formulario__create1' onSubmit={handleSubmit(onSubmit)}> 
-            <div className='div__input'>
+            <div className='div__input1'>
                 <label className='label__input1'>EMAIL</label>
                 <input type="email" {...register("email", { 
                     required: true 
                     })} className='input__formulario1'/>
                 <hr />
             </div>
-                    <button onClick={desconectar}>desconectar usuario </button>
+    
             <div className='div__input1'>
                 <label className='label__input1'>PASSWORD</label>
                 <input type="password"  {...register("password", { required: true })} className='input__formulario1'/>

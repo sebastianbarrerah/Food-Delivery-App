@@ -69,7 +69,7 @@ function Search() {
       <div className="footer__principal">
         <img src={HomeIcono} alt="" onClick={() => { navigate("/home") }} />
         <img src={SearchIcono} alt="" />
-        <img src={TimeIcono} alt="" />
+        <img src={TimeIcono} alt="" onClick={()=>navigate("/ordenes")}/>
         <img src={ProfileIcono} alt="" onClick={() => { navigate("/profile") }}/>
       </div>
     </>

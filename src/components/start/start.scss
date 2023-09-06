@@ -2,17 +2,22 @@
 @import "../../assets/estilos/reset.scss";
 
 @media (max-width: 600px) {
-    body{
-        // background-color: $amarillo;
-        .barra__celular{
-            width: 100%;
-        }
-        .logo__principal{
+ 
+    .inicio__logo{
+        background-color: $amarillo;
+        width: 100%;
+        height: 100vh;
+
+    }
+    .barra__celular{
+        width: 100%;
+    }
+    .logo__principal{
             left: 38%;
             position: relative;
             top: 20rem;
         }
-    }
+   
 
 }
     

@@ -23,12 +23,10 @@ const Acount = () => {
             if (photo) {
                 dispatch(setUserPhoto(photo)); 
               }
-            // console.log(data)
-            // console.log(photo)
-            // console.log('cargo photo')
            } catch (error) {
             //alert
             console.log(error)
+            console.log(error.code);
             alert('La imagen no fue cargada correctamente')
            }
 
@@ -68,7 +66,7 @@ const Acount = () => {
         <form className='formulario__create' onSubmit={handleSubmit(onSubmit)}> 
             <div className='div__input'>
                 <label className='label__input'>PHOTO</label>
-                <input type="file" {...register("photo")} className='input__formulario'/>
+                <input type="file" {...register("photo" )} className='input__formulario'/>
                 <hr />
             </div>
 

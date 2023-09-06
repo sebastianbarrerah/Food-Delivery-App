@@ -71,7 +71,6 @@ const Verificacion = () => {
             <button onClick={verifyCode} className='btn__next1'>Next</button>
         </div>
      
-        <img src={numeros} alt="numeros1" className='numeros'/>
    </section>
   )
 }

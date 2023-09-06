@@ -39,39 +39,7 @@ function Orders() {
                 ordenesHechas.length === 0 ? (
                     <div className='orders'>
                         <div className='order'>
-                            <img className='img' src={restaurantIcono} alt="" />
-                            <article className='data'>
-                                <span>Pardes restaurant</span>
-                                <span className='price'>$ 132.00</span>
-                            </article>
-                            <article className='details'>
-                                <span className='spanOrder'>Delivered</span>
-                                <img src={arrowRigth} alt="" />
-                            </article>
-                        </div>
-
-                        <div className='order'>
-                            <img className='img' src={restaurantIcono} alt="" />
-                            <article className='data'>
-                                <span>Pardes restaurant</span>
-                                <span className='price'>$ 132.00</span>
-                            </article>
-                            <article className='details'>
-                                <span className='spanOrder'>Cancelled</span>
-                                <img src={arrowRigth} alt="" />
-                            </article>
-                        </div>
-
-                        <div className='order'>
-                            <img className='img' src={cafeIcono} alt="" />
-                            <article className='data'>
-                                <span>Pardes restaurant</span>
-                                <span className='price'>$ 132.00</span>
-                            </article>
-                            <article className='details'>
-                                <span className='spanOrder'>Cancelled</span>
-                                <img src={arrowRigth} alt="" />
-                            </article>
+                          <h3>No hay ordenes encargadas</h3>
                         </div>
 
                     </div>

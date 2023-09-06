@@ -63,19 +63,17 @@ const Pay = () => {
             </div>
             <div className='titulo__slice'>
                 <h2 className='titulo__delivery'>Payment</h2>
-                <div className="botones__carrusel">
-                    <button className='boton__categoria' > Cach</button>
-                    <button className='boton__categoria' >dfdffd<img src="" alt="" /></button>
-                    <button className='boton__categoria' >htghg<img src="" alt="" /></button>
-                </div>
+               
             </div>
             <div className="container__compra">
                 <div className="food__found" >
                     <img className="img" src={datosPedido.image} alt="" />
                     <span className='btn__plus'>
-                        <button className='btn__contador' onClick={() => setCantidad(cantidad + 1)}>+1</button>
-                         {cantidad <= - 0 ? 0 : cantidad} 
                         <button className='btn__contador' onClick={() => setCantidad(cantidad - 1)}>-1</button>
+                       
+                         {cantidad <= - 0 ? 0 : cantidad} 
+
+                         <button className='btn__contador' onClick={() => setCantidad(cantidad + 1)}>+1</button>
                     </span>
 
                     <article className="data">
@@ -111,7 +109,7 @@ const Pay = () => {
                     <span>{`${totalVariables}$`}</span>
                 </div>
             </div>
-            <button className='button__location' onClick={() => navigate('/detallesOrden'
+            <button className='button__location4' onClick={() => navigate('/detallesOrden'
                 , { state: { datosDetalles: datosPedido, precio: multiplicacion + 10, cantidad: cantidad, notas: notasDelUsuario, total: totalVariables} }
             )}>Order</button>
 

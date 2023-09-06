@@ -2,7 +2,7 @@
 @import "../../assets/estilos/reset.scss";
 
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .container__plato{
         width: 100%;
         height: 100vh;
@@ -16,8 +16,8 @@
         }
         .plato__img{
             width: 100%;
-            height: 100%;
             object-fit: contain;
+            margin-bottom: 20px;
         }
         .atras9{
             position: absolute;
@@ -30,6 +30,7 @@
             display: flex;
             width: 100%;
             padding-left: 15px;
+            margin-bottom: 20px;
             .elegido__desTitulo{
                 display: flex;
                 flex-direction: column;
@@ -59,12 +60,14 @@
             opacity: 60%;
             margin: 15px 0;
             padding-left: 15px;
+            font-size: 25px;
+            margin-top: 40px;
         }
         .ingredientes{
             display: flex;
             gap: 10px;
             padding-left: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             .inputC{
                 background-color: $amarillo;
             }
@@ -82,13 +85,16 @@
                 opacity: 70%;
             }
         }
+        .contador__ingredientes{
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
         .botones{
             width: 100%;
             display: flex;
             gap: 15px;
             padding-left: 15px;
-            position: fixed;
-            bottom: 40px;
+            margin: 40px 0px;
             .boton__can{
                 height: 40px;
                 width: 130px;

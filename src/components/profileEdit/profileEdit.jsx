@@ -50,7 +50,7 @@ function ProfileEdit() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <img className="dataMobile" src={barraCel} alt="" />
         <div className="title__profile">
-          <img src={back} alt="" onClick={() => { navigate("/profile") }} />
+          <img src={back} alt="" onClick={() => { navigate("/NoInternet") }} />
           <span className="title__page">Manage adresses</span>
         </div>
         {/* FOTO */}

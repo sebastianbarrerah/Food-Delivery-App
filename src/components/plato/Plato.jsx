@@ -56,13 +56,13 @@ const Plato = () => {
     return (
         <section className='container__plato'>
             <div className='plato__container'>
-                <img src={celularBarra} className='celular9' alt="Estado celular" onClick={() => navigate('/home')} />
+                <img src={celularBarra} className='celular9' alt="Estado celular" onClick={() => navigate(-1)} />
                 <img src={datosDetalles.image} className='plato__img' alt='comida' />
                 <img src={atras} className='atras9' alt="Estado celular" />
                 <div className='container__infoElegido'>
                     <div className='elegido__desTitulo'>
                         <h3 className="titulo__elelgido">{datosDetalles.nombre}</h3>
-                        <span className='descripcion__elelgido'>DESCRIPCION DE EL PLATO DE COMIDA ELEGIGO</span>
+                        <span className='descripcion__elelgido'>Deliciosa comida preparada con los mejores alimentos del mercado buscando siempre la mejor calidad!</span>
                     </div>
                     <img src={horas} alt="reloj" className="horas" />
                     <span className='hora' >15 -20 min</span>
@@ -85,7 +85,7 @@ const Plato = () => {
                         </div>
                     </div>
                 ))}
-                <h4>ingredientes seleccionados: {contadorIngredientes} </h4>
+                <h4 className='contador__ingredientes'>ingredientes seleccionados: {contadorIngredientes} </h4>
                 <div className='botones'>
                     <button className='boton__can'> <button className='btn__adicion' onClick={resta}>-</button> Buy <button className='btn__adicion' onClick={suma}>+</button></button>
                     <button className='boton__buy' onClick={irPagar}>Add to cart: $ {contadorSumayResta}</button>

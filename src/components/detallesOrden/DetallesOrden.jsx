@@ -91,9 +91,8 @@ const DetallesOrden = () => {
     return (
         <section className="container__pay">
             <img src={celularBarra} className='celular' alt="Estado celular" />
-            <img src={atras} className='atras' alt="Estado celular"  onClick={() => navigate('/home')}/>
            
-           <img src={principal} alt="" />
+           <img src={principal} alt="" className="portada" />
             <div className="container__compra">
                 <h1>current orden</h1>
                 <div className="food__found" >

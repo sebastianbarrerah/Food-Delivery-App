@@ -6,13 +6,15 @@ import Call from "../../assets/imagenes/Call.png"
 import Chat from "../../assets/imagenes/LiveChat.png"
 import Email from "../../assets/imagenes/Email.png"
 import arrowRigth from "../../assets/imagenes/flechaDerecha.png"
+import { useNavigate } from 'react-router-dom'
 
 function Support() {
+  const navigate = useNavigate()
   return (
     <>
      <img className="dataMobile" src={barraCel} alt="" />
       <div className="title__adress">
-        <img src={back} alt="" />
+      <img src={back} alt="" onClick={() => navigate(-1)}/>
         <span className="title__page">Support</span>
       </div>
       <div className='image'>
@@ -25,7 +27,7 @@ function Support() {
             <span className="span">Call</span>
             <img className="imgArrow" src={arrowRigth} alt="" />
         </div>
-        <div className="settings">
+        <div className="settings" onClick={() => navigate("/liveChat")}>
             <img className="img" src={Chat} alt="" />
             <span className="span">Live chat</span>
             <img className="imgArrow" src={arrowRigth} alt="" />

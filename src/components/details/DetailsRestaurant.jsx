@@ -58,8 +58,7 @@ const platosFiltrados = datosDePlatos.filter(plato => plato.idRestaurante === no
         <img src={celularBarra} className='celular' alt="Estado celular" /> 
         <img src={atras} className='atras' alt="Estado celular" onClick={()=>{navigate('/home')}} /> 
         <figure className='figure__restaurante'>
-            <img src={logoNombre} className='logoNombre' alt="logoNombre" /> 
-            <img src={logoPanadero} className='logoNombre' alt="restaurante" /> 
+            <img src={infoRestaurante.imagen} className='logoNombre' alt="logoNombre" /> 
         </figure>
         <div className="restaurantes0" >
                 <img src={infoRestaurante.imagen} alt=""className='imagen__restaurante' />

@@ -5,13 +5,15 @@ import back from "../../assets/imagenes/Back.png"
 import cardIcono from "../../assets/imagenes/visa.png"
 import paypalIcono from "../../assets/imagenes/paypal.png"
 import eyeIcono from "../../assets/imagenes/eye.png"
+import { useNavigate } from 'react-router-dom'
 
 function Payment() {
+  const navigate = useNavigate()
   return (
    <>
     <img className="dataMobile" src={barraCel} alt="" />
       <div className="title__adress">
-        <img src={back} alt="" />
+      <img src={back} alt="" onClick={() => navigate(-1)}/>
         <span className="title__page">Payment method</span>
       </div>
 
@@ -26,7 +28,7 @@ function Payment() {
         <input className='input' type="text" placeholder='example@gmail.com'/>
         <img src={eyeIcono} alt="" />
       </div>
-      <button className='add__card'>Add new card</button>
+      <button className='add__card' onClick={() => navigate('/addCard')}>Add new card</button>
    </>
   )
 }

@@ -19,6 +19,11 @@ import DetallesOrden from "../detallesOrden/detallesOrden";
 import OrderAccepted from "../orderAccepted/orderAccepted";
 import Orders from "../orders/orders";
 import OrderDetails from "../ordersDetails/orderDetails";
+import Support from "../support/support";
+import LiveChat from "../liveChat/liveChat";
+import Payment from "../payment/payment";
+import AddNewCard from "../addNewCard/addNewCard";
+import NoInternet from "../noInternet/noInternet";
 
 
 const Router = () => {
@@ -44,6 +49,13 @@ const Router = () => {
                     <Route path="/ordenAceptada" element={<OrderAccepted/>}/>
                     <Route path="/ordenes" element={<Orders/>}/>
                     <Route path="/orderDetails" element={<OrderDetails />}/>
+                    <Route path="/Support" element={<Support />}/>
+                    <Route path="/liveChat" element={<LiveChat />}/>
+                    <Route path="/liveChat" element={<LiveChat />}/>
+                    <Route path="/payment" element={<Payment />}/>
+                    <Route path="/addCard" element={<AddNewCard />}/>
+                    <Route path="/NoInternet" element={<NoInternet />}/>
+
                 </Route>
                 
             </Routes>
@@ -51,5 +63,7 @@ const Router = () => {
     )
 }
 export default Router;
+
+
 
 

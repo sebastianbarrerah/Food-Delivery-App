@@ -28,11 +28,10 @@ function Profile() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const userPhoto = useSelector(state => state.photo.userPhoto);
-  // console.log(userPhoto)
-  
+
   const cerrarSesion = async () => {
     try {
-      await signOut(auth); 
+      await signOut(auth);
       console.log('Usuario desconectado');
       dispatch(logout(false));
       dispatch(resetUsers())
@@ -41,7 +40,7 @@ function Profile() {
       console.log('Error al desconectar:', error.code);
     }
   };
-  
+
   const datosPerfil = useSelector(state => state.users)
   useEffect(() => {
     console.log(datosPerfil);
@@ -49,22 +48,22 @@ function Profile() {
 
   console.log(datosPerfil[0].foto, "esta es la foto que se carga");
   console.log(datosPerfil);
-  
+
 
   return (
     <>
       <img className="dataMobile" src={barraCel} alt="" />
 
       <div className="profile__User">
-      <img className="imgProfile" src={datosPerfil[0].foto} alt="" />
+        <img className="imgProfile" src={datosPerfil[0].foto} alt="" />
 
         <span className="spanProfile">
           {
             (datosPerfil[0].nombre === null) ? (
               datosPerfil[0].numero
             ) :
-            (datosPerfil[0].nombre)
-  }</span>
+              (datosPerfil[0].nombre)
+          }</span>
       </div>
 
       <div className="profile__data">
@@ -78,7 +77,7 @@ function Profile() {
           <span className="span">Account edit</span>
           <img className="imgArrow" src={switcher} alt="" />
         </div>
-        <div className="settings">
+        <div className="settings" onClick={() => { navigate('/payment') }}>
           <img className="img" src={coin} alt="" />
           <span className="span">Payment</span>
           <img className="imgArrow" src={arrowRigth} alt="" />
@@ -98,20 +97,25 @@ function Profile() {
           <span className="span">FAQ</span>
           <img className="imgArrow" src={arrowRigth} alt="" />
         </div>
+        <div className="settings" onClick={() => { navigate('/support') }}>
+          <img className="img" src={Call} alt="" />
+          <span className="span" >Support</span>
+          <img className="imgArrow" src={arrowRigth} alt="" />
+        </div>
 
         <div className="settings2" onClick={() => { cerrarSesion() }}>
-        
+
           <span className="span__cerrar">Cerrar Sesion</span>
         </div>
       </div>
 
       <div className="footer__profile">
-        <img src={HomeIcono} alt="" onClick={()=>{navigate('/home')}}/>
-        <img src={SearchIcono} alt="" onClick={()=>{navigate('/search')}}/>
-        <img src={TimeIcono} alt="" />
+        <img src={HomeIcono} alt="" onClick={() => { navigate('/home') }} />
+        <img src={SearchIcono} alt="" onClick={() => { navigate('/search') }} />
+        <img src={TimeIcono} alt="" onClick={() => navigate("/ordenes")} />
         <img src={ProfileIcono} alt="" />
       </div>
-    </> 
+    </>
   );
 }
 

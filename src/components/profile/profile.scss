@@ -54,6 +54,7 @@
             padding: 4%;
             font-weight: bold;
             justify-content: center;
+            text-align: center;
             .span__cerrar {
                 color: white;
             }
@@ -115,7 +116,7 @@
 
         }
         .settings2 {
-            background-color: alpha($color: #b84343);
+            background-color:#d45454;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -123,10 +124,11 @@
             border-radius: 10px;
             height: 3rem;
             padding: 4%;
-    
+            font-weight: bold;
+            justify-content: center;
+            text-align: center;
             .span__cerrar {
-                width: 85%;
-                color: rgb(66, 66, 66)
+                color: white;
             }
         }
     }

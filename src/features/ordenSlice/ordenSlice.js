@@ -14,7 +14,8 @@ const ordenSlice = createSlice({
             state.push(action.payload)
         },
         eliminarOrden: (state) => {
-            state = []
+       
+            return [];
         }
         
 
